@@ -1,10 +1,10 @@
 import React, { useState } from 'react'
 import { collection, addDoc } from 'firebase/firestore'
 import { auth, db } from '../config/firebase';
-
+import NotSignedUp from './NotSignedUp';
 
 export default function MyBlogs() {
-
+    
     const RefBlogSite = collection(db,"Blogs")
 
     const [blogTitle, setBlogTitle] = useState("");
@@ -33,13 +33,24 @@ export default function MyBlogs() {
     }
 
 
-    return (
-        <>
-        <div className="NewBlogs mx-5 my-5">
-            <input placeholder='Title' onChange={(e)=>setBlogTitle(e.target.value)} />
-            <input placeholder='Content' onChange={(e)=>setBlogContent(e.target.value)} />
-            <button onClick={publishBlog} > Publish </button>
-        </div>
-        </>
-    )
+
+
+    if (auth?.currentUser?.email == null){
+        return (
+            <>
+                <NotSignedUp />
+            </>
+        )
+    }else{
+        return (
+            <>
+            <div className="NewBlogs mx-5 my-5">
+                <h3>Publish your Blog</h3>
+                <input placeholder='Title' onChange={(e)=>setBlogTitle(e.target.value)} />  <br/>
+                <input placeholder='Content' onChange={(e)=>setBlogContent(e.target.value)} /> <br/>
+                <button onClick={publishBlog} > Publish </button>
+            </div>
+            </>
+        )
+    }
 }

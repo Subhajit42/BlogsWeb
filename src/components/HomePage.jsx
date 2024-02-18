@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { auth, db } from '../config/firebase';
 import { collection, getDocs, onSnapshot } from 'firebase/firestore';
-
+import Navbar from './Navbar';
 
 const RefBlogsDB = collection(db, "Blogs");
 
@@ -80,6 +80,10 @@ export default function HomePage() {
 
     return (
         <>
+            <Navbar />
+            <div className="container my-5">
+                <h1>Welcome to BlogsWeb</h1>
+            </div>
             <div className="BlogsOutput mx-5 my-5 border">
                 
                     {/* <button onClick={getBlogsList}>GetDATA</button> */}

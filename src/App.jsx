@@ -1,8 +1,8 @@
 import HomePage from "./components/HomePage";
-import MyBlogs from "./components/MyBlogs";
-import LogIn from "./components/logIn";
-import Navbar from "./components/navbar";
-import SignIn from "./components/signIn";
+import MyBlogs from "./components/UserBlogs";
+import LogIn from "./components/LogIn";
+import Navbar from "./components/Navbar";
+import SignIn from "./components/SignIn";
 // import './App.css'
 
 function App() {

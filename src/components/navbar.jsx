@@ -1,6 +1,18 @@
 import React from 'react'
+import { useNavigate} from 'react-router-dom'
 
 export default function navbar() {
+
+    let navigate = useNavigate();
+    const ToSignIn = () =>{
+        let path = `/sign-in`; 
+        navigate(path);
+    }
+    const ToLogIn = () =>{
+        let path = `/log-in`; 
+        navigate(path);
+    }
+
   return (
     <>
         <nav className="navbar navbar-expand-lg bg-body-tertiary">
@@ -12,7 +24,7 @@ export default function navbar() {
                 <div className="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul className="navbar-nav me-auto mb-2 mb-lg-0">
                     <li className="nav-item">
-                    <a className="nav-link active" aria-current="page" href="#">Home</a>
+                    <a className="nav-link active" aria-current="page" href="/">Home</a>
                     </li>
                     <li className="nav-item">
                     <a className="nav-link" href="#">Link</a>
@@ -28,13 +40,13 @@ export default function navbar() {
                         <li><a className="dropdown-item" href="#">Something else here</a></li>
                     </ul>
                     </li>
-                    <li className="nav-item">
-                    <a className="nav-link disabled" aria-disabled="true">Disabled</a>
-                    </li>
                 </ul>
-                <form className="d-flex" role="search">
-                    <input className="form-control me-2" type="search" placeholder="Search" aria-label="Search"/>
-                    <button className="btn btn-outline-success" type="submit">Search</button>
+                <form className="d-flex">
+                    {/* <input className="form-control me-2" type="search" placeholder="Search" aria-label="Search"/>
+                    <button className="btn btn-outline-success" type="submit">Search</button> */}
+                    {/* Sign In button */}
+                    <button className="btn btn-primary mx-2" onClick={ToSignIn}>SignIn</button>
+                    <button className="btn btn-primary mx-2" onClick={ToLogIn}>LogIn</button>
                 </form>
                 </div>
             </div>
