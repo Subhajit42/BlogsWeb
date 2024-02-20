@@ -15,6 +15,11 @@ export default function MyBlogs() {
         return [currentDate[2],currentDate[1],currentDate[3]].join(' ')
     }
 
+    const getTime = () =>{
+        const currentTime = Date().split(' ');
+        return [currentTime[4],currentTime[5]].join(' ')
+    }
+
     const getUser = () =>{
         if (auth.currentUser.displayName){
             return auth.currentUser.displayName;
@@ -25,7 +30,7 @@ export default function MyBlogs() {
     const publishBlog = async () =>{
         
         try {
-            await addDoc(RefBlogSite,{Title: blogTitle, Content: blogContent, UserId: getUser() , Dated: getDate() })
+            await addDoc(RefBlogSite,{Title: blogTitle, Content: blogContent, UserId: getUser() , Dated: getDate(), Time: getTime() })
             console.log("Blog Published");
         } catch (err) {
             console.error(err);

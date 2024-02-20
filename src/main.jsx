@@ -3,9 +3,9 @@ import ReactDOM from 'react-dom/client'
 // import App from './App.jsx'
 // import './index.css'
 import HomePage from "./components/HomePage";
-import UserBlogs from "./components/UserBlogs.jsx";
 import LogIn from "./components/LogIn.jsx";
 import SignIn from "./components/SignIn.jsx";
+import ReadBlogs from "./components/ReadBlogs.jsx";
 
 import { createBrowserRouter, RouterProvider} from 'react-router-dom'
 import ErrorNotFound from './components/ErrorNotFound.jsx'
@@ -25,6 +25,9 @@ const router = createBrowserRouter([
   },{
     path: '/user',
     element: <UserSpace />
+  },{
+    path: '/test',
+    element: <ReadBlogs lim={3} />
   }
 ])
 

@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { auth, db } from '../config/firebase';
-import { collection, getDocs, onSnapshot } from 'firebase/firestore';
+import { collection, getDocs, onSnapshot, query, orderBy, limit } from 'firebase/firestore';
 import Navbar from './Navbar';
+import ReadBlogs from './ReadBlogs';
 
 const RefBlogsDB = collection(db, "Blogs");
 
@@ -70,10 +71,10 @@ export default function HomePage() {
 
 
     const getBlogList = async () =>{
-        const data = await getDocs(RefBlogsDB);
-        // console.log(data.docs);
-        const filtered = data.docs.map((doc)=>doc.data());
-        setBlogList(filtered);
+        const q = query(RefBlogsDB, orderBy("Time","desc"), limit(3));
+        const data = await getDocs(q);
+        const arr = data.docs.map((doc)=>({...doc.data()}));
+        setBlogList(arr);
     }
 
     useEffect(()=>{ getBlogList() },[])
@@ -84,15 +85,8 @@ export default function HomePage() {
             <div className="container my-5">
                 <h1>Welcome to BlogsWeb</h1>
             </div>
-            <div className="BlogsOutput mx-5 my-5 border">
-                
-                    {/* <button onClick={getBlogsList}>GetDATA</button> */}
-                    {BlogsList.map((blog)=>
-                        <div id="blog">
-                            <h3>{blog.Title}</h3>
-                            <p>{blog.Content}</p>
-                        </div>
-                    )}
+            <div className="container my-5 border">
+                <ReadBlogs lim={3} />
             </div>
         </>
     )
