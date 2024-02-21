@@ -41,6 +41,20 @@ export default function signIn() {
         }
     }
 
+    // const saveUser = async () =>{
+    //     auth.onAuthStateChanged((user) => {
+    //         if (user){
+    //             console.log(user.displayName);
+    //         }
+    //     })
+    // }
+
+    // useEffect(() => {
+    //     saveUser();
+    // }, [])
+
+
+
     return (
         <>
         <Navbar />

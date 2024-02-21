@@ -1,8 +1,9 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { auth } from '../config/firebase';
 import { signInWithEmailAndPassword, signOut } from 'firebase/auth';
-import { Link, Navigate, redirect, useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import Navbar from "./Navbar"
+
 
 export default function logIn() {
 

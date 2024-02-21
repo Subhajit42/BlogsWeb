@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { collection, getDocs } from 'firebase/firestore';
-import { query, orderBy, limit } from "firebase/firestore"; 
-import { db } from '../config/firebase';
+import { query, where, orderBy, limit } from "firebase/firestore"; 
+import { auth, db } from '../config/firebase';
 
 export default function ReadBlogs(props) {
 
@@ -10,16 +10,21 @@ export default function ReadBlogs(props) {
     const RefBlogsDB = collection(db, "Blogs")
 
     const getBlogList = async () =>{
-        const q = query(RefBlogsDB, orderBy("Time","desc"), limit(props.lim));
+        var q;
+        if (props.condition == true){
+             const Id = auth.currentUser.displayName ? auth.currentUser.displayName: auth.currentUser.email;
+            q = query(RefBlogsDB, where("UserId","==",Id) ,orderBy("Time","desc"), limit(props.lim));
+        }
+        else{
+            q = query(RefBlogsDB, orderBy("Time","desc"), limit(props.lim));
+        }
         const data = await getDocs(q);
         const arr = data.docs.map((doc)=>({...doc.data()}))
+        // console.log(arr);
         setBlogList(arr);
     }
 
     useEffect(()=>{ getBlogList() },[])
-
-
-    // console.log(BlogsList)
 
     return (
         <>
@@ -29,7 +34,7 @@ export default function ReadBlogs(props) {
                     <div key={index} className='BlogCard'>
                         <h3>{blog.Title}</h3>
                         <small> <i> {blog.UserId} </i> </small>
-                        <p>{blog.Dated}</p>
+                        <p>{blog.Dated}, {blog.Time}</p>
                         <p>{blog.Content}</p>
                         
                     </div>
@@ -41,5 +46,6 @@ export default function ReadBlogs(props) {
 
 ReadBlogs.defaultProps = {
     lim : 3,
-    title : "Latest Blogs"
+    title : "Latest Blogs",
+    condition: false
 }

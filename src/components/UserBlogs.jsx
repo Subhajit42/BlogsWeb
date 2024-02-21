@@ -2,8 +2,9 @@ import React, { useState } from 'react'
 import { collection, addDoc } from 'firebase/firestore'
 import { auth, db } from '../config/firebase';
 import NotSignedUp from './NotSignedUp';
+import ReadBlogs from './ReadBlogs';
 
-export default function MyBlogs() {
+export default function UserBlogs(props) {
     
     const RefBlogSite = collection(db,"Blogs")
 
@@ -41,6 +42,8 @@ export default function MyBlogs() {
 
 
     if (auth?.currentUser?.email == null){
+    // if (auth == null){
+        // console.log(auth);
         return (
             <>
                 <NotSignedUp />
@@ -54,6 +57,10 @@ export default function MyBlogs() {
                 <input placeholder='Title' onChange={(e)=>setBlogTitle(e.target.value)} />  <br/>
                 <input placeholder='Content' onChange={(e)=>setBlogContent(e.target.value)} /> <br/>
                 <button onClick={publishBlog} > Publish </button>
+            </div>
+
+            <div className="container  my-5 mx-5 border">
+                <ReadBlogs condition={true} title={props.title}/>
             </div>
             </>
         )
