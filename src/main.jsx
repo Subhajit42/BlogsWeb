@@ -10,6 +10,7 @@ import ReadBlogs from "./components/ReadBlogs.jsx";
 import { createBrowserRouter, RouterProvider} from 'react-router-dom'
 import ErrorNotFound from './components/ErrorNotFound.jsx'
 import UserSpace from './components/UserSpace.jsx';
+import SearchBlogs from './components/SearchBlogs.jsx';
 
 const router = createBrowserRouter([
   { path: '/',
@@ -27,7 +28,8 @@ const router = createBrowserRouter([
     element: <UserSpace />
   },{
     path: '/test',
-    element: <ReadBlogs condition={false}/>
+    // element: <ReadBlogs condition={false}/>
+    element: <SearchBlogs />
   }
 ])
 

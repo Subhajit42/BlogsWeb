@@ -60,7 +60,7 @@ export default function UserBlogs(props) {
             </div>
 
             <div className="container  my-5 mx-5 border">
-                <ReadBlogs condition={true} title={props.title}/>
+                <ReadBlogs condition={true} title={props.title} liveUpdates={true}/>
             </div>
             </>
         )
