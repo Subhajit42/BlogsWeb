@@ -27,7 +27,7 @@ const router = createBrowserRouter([
     element: <UserSpace />
   },{
     path: '/test',
-    element: <ReadBlogs lim={3} />
+    element: <ReadBlogs condition={false}/>
   }
 ])
 

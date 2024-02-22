@@ -86,7 +86,7 @@ export default function HomePage() {
                 <h1>Welcome to BlogsWeb</h1>
             </div>
             <div className="container my-5 border">
-                <ReadBlogs lim={3} />
+                <ReadBlogs condition={false} />
             </div>
         </>
     )

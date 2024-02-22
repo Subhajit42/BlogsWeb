@@ -39,7 +39,7 @@ export default function logIn() {
         <div className='mx-5 my-5'>
             <h3> Log In</h3>
             <input placeholder='username' onChange={(e)=> setUsername(e.target.value)} /> <br/>
-            <input placeholder='password' onChange={(e)=> setPassword(e.target.value)} /> <br/>
+            <input type="password" placeholder='password' onChange={(e)=> setPassword(e.target.value)} /> <br/>
             <button onClick={LogIn}> Log In </button>
             <button onClick={SignOut}> SignOut</button> <br/>
             <Link to="/sign-in">Don't have an account? Sign in</Link>

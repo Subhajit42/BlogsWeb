@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { collection, getDocs } from 'firebase/firestore';
+import { QueryOrderByConstraint, collection, getDocs } from 'firebase/firestore';
 import { query, where, orderBy, limit } from "firebase/firestore"; 
 import { auth, db } from '../config/firebase';
 
@@ -11,13 +11,16 @@ export default function ReadBlogs(props) {
 
     const getBlogList = async () =>{
         var q;
-        if (props.condition == true){
+        if (props.condition){
              const Id = auth.currentUser.displayName ? auth.currentUser.displayName: auth.currentUser.email;
-            q = query(RefBlogsDB, where("UserId","==",Id) ,orderBy("Time","desc"), limit(props.lim));
+            q = query(RefBlogsDB, where("UserId","==",Id) , orderBy("Dated","desc"), orderBy("Time","desc"), limit(props.lim));
         }
         else{
-            q = query(RefBlogsDB, orderBy("Time","desc"), limit(props.lim));
+            q = query(RefBlogsDB,orderBy("Dated","desc"), orderBy("Time","desc"), limit(props.lim));
         }
+        
+        // q = query(RefBlogsDB, orderBy("Dated","desc"), orderBy("Time","desc"), limit(props.lim));
+
         const data = await getDocs(q);
         const arr = data.docs.map((doc)=>({...doc.data()}))
         // console.log(arr);
