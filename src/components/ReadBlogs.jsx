@@ -21,16 +21,7 @@ export default function ReadBlogs(props) {
     }
     
     
-    const getBlogList = async (q) =>{
-        var q;
-        // if (props.condition){
-        //      const Id = auth.currentUser.displayName ? auth.currentUser.displayName: auth.currentUser.email;
-        //     q = query(RefBlogsDB, where("UserId","==",Id) , orderBy("Dated","desc"), orderBy("Time","desc"), limit(props.lim));
-        // }
-        // else{
-        //     q = query(RefBlogsDB,orderBy("Dated","desc"), orderBy("Time","desc"), limit(props.lim));
-        // }
-        
+    const getBlogList = async (q) =>{        
         const data = await getDocs(q);
         const arr = data.docs.map((doc)=>({...doc.data()}))
         console.log("not using snapshot");

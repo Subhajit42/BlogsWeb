@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { GoogleAuth, auth } from '../config/firebase';
-import { createUserWithEmailAndPassword, signInWithPopup, signOut } from 'firebase/auth';
+import { createUserWithEmailAndPassword, signInWithPopup} from 'firebase/auth';
 import { Link, useNavigate } from 'react-router-dom';
 import Navbar from './Navbar';
 
@@ -33,26 +33,6 @@ export default function signIn() {
         }
     }
 
-    const SignOut = async () =>{
-        try {
-            await signOut(auth).then(console.log("SignOut Successful"));
-        } catch (err) {
-            console.error(err);
-        }
-    }
-
-    // const saveUser = async () =>{
-    //     auth.onAuthStateChanged((user) => {
-    //         if (user){
-    //             console.log(user.displayName);
-    //         }
-    //     })
-    // }
-
-    // useEffect(() => {
-    //     saveUser();
-    // }, [])
-
 
 
     return (
@@ -63,7 +43,6 @@ export default function signIn() {
             <input placeholder='username' onChange={(e)=> setUsername(e.target.value)} /> <br/>
             <input type="password" placeholder='password' onChange={(e)=> setPassword(e.target.value)} /> <br/>
             <button onClick={SignIn}> Sign In </button>
-            <button onClick={SignOut}> SignOut</button>
             <button onClick={SignWithGoogleID}> Google SignIn</button> <br/>
             <Link to={"/log-in"}>Already have an account? Log in</Link>
         </div>

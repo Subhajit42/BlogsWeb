@@ -1,5 +1,7 @@
 import React from 'react'
 import { useNavigate} from 'react-router-dom'
+import { signOut } from 'firebase/auth'
+import { auth } from '../config/firebase'
 
 export default function navbar() {
 
@@ -11,6 +13,16 @@ export default function navbar() {
     const ToLogIn = () =>{
         let path = `/log-in`; 
         navigate(path);
+    }
+    const SignOut = async () =>{
+            try {
+                console.log(auth?.currentUser?.email)
+                await signOut(auth).then(console.log("SignOut Successful")).then(navigate('/'));
+                
+            } catch (err) {
+                console.error(err);
+            }
+        navigate('/');
     }
 
   return (
@@ -45,8 +57,17 @@ export default function navbar() {
                     {/* <input className="form-control me-2" type="search" placeholder="Search" aria-label="Search"/>
                     <button className="btn btn-outline-success" type="submit">Search</button> */}
                     {/* Sign In button */}
-                    <button className="btn btn-primary mx-2" onClick={ToSignIn}>SignIn</button>
-                    <button className="btn btn-primary mx-2" onClick={ToLogIn}>LogIn</button>
+                    { !(auth?.currentUser?.email) && 
+                        <>
+                            <button className="btn btn-primary mx-2" onClick={ToSignIn}>SignIn</button>
+                            <button className="btn btn-primary mx-2" onClick={ToLogIn}>LogIn</button>
+                        </>
+                    }
+
+                    {auth?.currentUser?.email && 
+                        <button className="btn btn-primary" onClick={SignOut}>SignOut</button>
+                    }
+
                 </form>
                 </div>
             </div>

@@ -1,9 +1,8 @@
-import React, { useState, useEffect } from 'react'
-import { auth } from '../config/firebase';
-import { signInWithEmailAndPassword, signOut } from 'firebase/auth';
+import React, { useState } from 'react'
+import { GoogleAuth, auth } from '../config/firebase';
+import { signInWithEmailAndPassword, signInWithPopup } from 'firebase/auth';
 import { Link, useNavigate } from 'react-router-dom';
 import Navbar from "./Navbar"
-
 
 export default function logIn() {
 
@@ -23,25 +22,39 @@ export default function logIn() {
             console.error(err);
         }
     }
-
-    const SignOut = async () =>{
+    
+    const SignWithGoogleID = async () =>{
         try {
-            await signOut(auth).then(console.log("SignOut Successful"));
-            
+            let logged = await signInWithPopup(auth,GoogleAuth);
+            if (logged){
+                navigate('/user');
+            }
         } catch (err) {
             console.error(err);
         }
     }
-    
+
+
+    document.addEventListener("submit", (event)=>{
+        event.preventDefault();
+        try{
+            LogIn();
+        }catch(err){
+            console.error(err);
+        }
+    });
+
     return (
     <>
         <Navbar/>
         <div className='mx-5 my-5'>
             <h3> Log In</h3>
-            <input placeholder='username' onChange={(e)=> setUsername(e.target.value)} /> <br/>
-            <input type="password" placeholder='password' onChange={(e)=> setPassword(e.target.value)} /> <br/>
-            <button onClick={LogIn}> Log In </button>
-            <button onClick={SignOut}> SignOut</button> <br/>
+            <form>
+                <input placeholder='username' onChange={(e)=> setUsername(e.target.value)} /> <br/>
+                <input type="password" placeholder='password' onChange={(e)=> setPassword(e.target.value)} /> <br/>
+                <button onClick={LogIn}> Log In </button>
+                <button onClick={SignWithGoogleID}> Google SignIn</button> <br/>
+            </form>
             <Link to="/sign-in">Don't have an account? Sign in</Link>
         </div>
     </>

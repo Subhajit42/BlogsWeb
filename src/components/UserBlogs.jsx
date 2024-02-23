@@ -3,6 +3,7 @@ import { collection, addDoc } from 'firebase/firestore'
 import { auth, db } from '../config/firebase';
 import NotSignedUp from './NotSignedUp';
 import ReadBlogs from './ReadBlogs';
+import Navbar from './Navbar';
 
 export default function UserBlogs(props) {
     
@@ -29,39 +30,52 @@ export default function UserBlogs(props) {
     }
 
     const publishBlog = async () =>{
-        
-        try {
-            await addDoc(RefBlogSite,{Title: blogTitle, Content: blogContent, UserId: getUser() , Dated: getDate(), Time: getTime() })
-            console.log("Blog Published");
-        } catch (err) {
-            console.error(err);
+        // const choice = confirm("Are you sure you want to publish this blog?");
+        if (blogTitle.trim() == "" || blogContent.trim() == "" ){
+            console.log("Empty Blog");
+            return;
+        }else{
+            try {
+                console.log(auth.currentUser.uid);
+                await addDoc(RefBlogSite,
+                    {
+                        Title: blogTitle,
+                        Content: blogContent,
+                        UserId: getUser(),
+                        Dated: getDate(),
+                        Time: getTime()
+                    });
+                console.log("Blog Published");
+            } catch (err) {
+                console.log("Error Publishing Blog");
+                console.error(err);
+            }
         }
     }
 
-
+    document.addEventListener("submit",(e)=>{
+        e.preventDefault();
+        publishBlog();
+    });
 
 
     if (auth?.currentUser?.email == null){
-    // if (auth == null){
-        // console.log(auth);
         return (
             <>
-                <NotSignedUp />
+                {/* <NotSignedUp /> */}
             </>
         )
     }else{
         return (
             <>
-            <div className="NewBlogs mx-5 my-5">
-                <h3>Publish your Blog</h3>
-                <input placeholder='Title' onChange={(e)=>setBlogTitle(e.target.value)} />  <br/>
-                <input placeholder='Content' onChange={(e)=>setBlogContent(e.target.value)} /> <br/>
-                <button onClick={publishBlog} > Publish </button>
-            </div>
-
-            <div className="container  my-5 mx-5 border">
-                <ReadBlogs condition={true} title={props.title} liveUpdates={true}/>
-            </div>
+                <div className="NewBlogs mx-5 my-5">
+                    <h3>Publish your Blog</h3>
+                    <form>
+                        <input placeholder='Title' onChange={(e)=>setBlogTitle(e.target.value)} />  <br/>
+                        <input placeholder='Content' onChange={(e)=>setBlogContent(e.target.value)} /> <br/>
+                        <button onClick={publishBlog} > Publish </button>
+                    </form>
+                </div>
             </>
         )
     }
