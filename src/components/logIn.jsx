@@ -3,6 +3,7 @@ import { GoogleAuth, auth } from '../config/firebase';
 import { signInWithEmailAndPassword, signInWithPopup } from 'firebase/auth';
 import { Link, useNavigate } from 'react-router-dom';
 import Navbar from "./Navbar"
+import './componentsCss/SignIn.css';
 
 export default function logIn() {
 
@@ -44,18 +45,36 @@ export default function logIn() {
         }
     });
 
+    // document.addEventListener("keypress", function(event) {
+    //     if (event.key === "Enter") {
+    //         event.preventDefault();
+    //         console.log("clicked");
+    //         LogIn();
+    //     }
+    // });
+
+
+
     return (
     <>
         <Navbar/>
-        <div className='mx-5 my-5'>
-            <h3> Log In</h3>
-            <form>
-                <input placeholder='username' onChange={(e)=> setUsername(e.target.value)} /> <br/>
-                <input type="password" placeholder='password' onChange={(e)=> setPassword(e.target.value)} /> <br/>
-                <button onClick={LogIn}> Log In </button>
-                <button onClick={SignWithGoogleID}> Google SignIn</button> <br/>
-            </form>
-            <Link to="/sign-in">Don't have an account? Sign in</Link>
+        <div className="body">
+            <div className='container contentbox'>
+                <div className="heading">
+                {/* <div className='mx-5 my-5'> */}
+                    <center>
+                        <h2> Log In</h2>
+                    </center>
+                </div>
+                    {/* <form> */}
+                        <input placeholder='username' onChange={(e)=> setUsername(e.target.value)} />
+                        <input type="password" placeholder='password' onChange={(e)=> setPassword(e.target.value)} />
+                        <button type="button" className="form-btn" onClick={LogIn}> Log In </button>
+                        <center><p>or</p></center>
+                        <button type="button" className="form-btn" onClick={SignWithGoogleID}> Google SignIn</button>
+                    {/* </form> */}
+                    <Link id='redirect-link' to="/sign-in">Don't have an account? Sign in</Link>
+            </div>
         </div>
     </>
   )

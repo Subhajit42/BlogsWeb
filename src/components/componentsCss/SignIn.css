@@ -1,7 +1,58 @@
+.body{
+    height: auto;
+}
+
+.heading{
+    padding-bottom: 20%;
+    text-transform: uppercase;
+    color: black;
+}
+
+h2{
+    align-self: center;
+    font-size: 2.5em;
+}
+
+input{
+    border-style: none;
+    /* text-transform: capitalize; */
+    height: 2em;
+    border-radius: 4px;
+    margin-bottom: 20px ;
+    padding: 8px;
+    background-color: bisque;
+    width:110%;
+}
+
+.form-btn{
+    background-color: #303030;
+    color: #FAC406;
+    border-radius: 6px;
+    height: 2em;
+}
+
+#redirect-link{
+    /* text-decoration: underline; */
+    align-self: center;
+    font-size: small;
+    color: bisque;
+}
+
 .contentbox{
+    z-index: -1;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding-left: 5%;
+    padding-right: 5%;
+    border-radius: 8px;
+    max-width: max-content;
+    height: 60%;
     background-image: linear-gradient(#FAC406,#FA7B06);
     display: flex;
     flex-direction: column;
-    margin: 3vw;
+    justify-content: center;
+    align-content: center;
 }
 

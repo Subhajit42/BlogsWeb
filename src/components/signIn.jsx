@@ -35,21 +35,25 @@ export default function signIn() {
     }
 
 
-
     return (
         <>
         <Navbar />
-        <div className='container contentbox mx-5 my-5'>
-        <h3> Sign In</h3>
-        {/* <div className="form-row"> */}
-            <input placeholder='username' onChange={(e)=> setUsername(e.target.value)} /> <br/>
-        {/* </div> */}
-        {/* <div className="form-row"> */}
-            <input type="password" placeholder='password' onChange={(e)=> setPassword(e.target.value)} /> <br/>
-        {/* </div> */}
-            <button type="button" onClick={SignIn}> Sign In </button>
-            <button type="button" onClick={SignWithGoogleID}> Google SignIn</button> <br/>
-            <Link to={"/log-in"}>Already have an account? Log in</Link>
+        <div className="body">
+            <div className='container contentbox'>
+                <div className="heading">
+                    <center><h2> Sign In</h2></center>
+                </div>
+                <input placeholder='username' onChange={(e)=> setUsername(e.target.value)} />
+                <input type="password" placeholder='password' onChange={(e)=> setPassword(e.target.value)} />
+            
+                <button type="button" className="form-btn"  onClick={SignIn}> Sign In </button>
+                <center><p>or</p></center>
+                <button type="button" className="form-btn" onClick={SignWithGoogleID}> Google SignIn</button>
+                
+                <center>
+                    <Link id='redirect-link' to={"/log-in"}>Already have an account? Log in</Link>
+                </center>
+            </div>
         </div>
         </>
     )

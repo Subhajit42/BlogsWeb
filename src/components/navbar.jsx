@@ -7,16 +7,18 @@ export default function navbar() {
 
     let navigate = useNavigate();
     const ToSignIn = () =>{
+        if (window.location.pathname == "/sign-in") return;
         let path = `/sign-in`; 
         navigate(path);
     }
     const ToLogIn = () =>{
+        if (window.location.pathname == "/log-in") return;
         let path = `/log-in`; 
         navigate(path);
     }
     const SignOut = async () =>{
             try {
-                console.log(auth?.currentUser?.email)
+                // console.log(auth?.currentUser?.email)
                 await signOut(auth).then(console.log("SignOut Successful")).then(navigate('/'));
                 
             } catch (err) {
@@ -54,7 +56,7 @@ export default function navbar() {
                     </ul>
                     </li>
                 </ul>
-                <form className="d-flex">
+                <div className="d-flex">
                     {/* <input className="form-control me-2" type="search" placeholder="Search" aria-label="Search"/>
                     <button className="btn btn-outline-success" type="submit">Search</button> */}
                     {/* Sign In button */}
@@ -69,7 +71,7 @@ export default function navbar() {
                         <button className="btn btn-light" onClick={SignOut}>SignOut</button>
                     }
 
-                </form>
+                </div>
                 </div>
             </div>
         </nav>
