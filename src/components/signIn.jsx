@@ -3,6 +3,7 @@ import { GoogleAuth, auth } from '../config/firebase';
 import { createUserWithEmailAndPassword, signInWithPopup} from 'firebase/auth';
 import { Link, useNavigate } from 'react-router-dom';
 import Navbar from './Navbar';
+import './componentsCss/SignIn.css';
 
 export default function signIn() {
 
@@ -38,12 +39,16 @@ export default function signIn() {
     return (
         <>
         <Navbar />
-        <div className='mx-5 my-5'>
+        <div className='container contentbox mx-5 my-5'>
         <h3> Sign In</h3>
+        {/* <div className="form-row"> */}
             <input placeholder='username' onChange={(e)=> setUsername(e.target.value)} /> <br/>
+        {/* </div> */}
+        {/* <div className="form-row"> */}
             <input type="password" placeholder='password' onChange={(e)=> setPassword(e.target.value)} /> <br/>
-            <button onClick={SignIn}> Sign In </button>
-            <button onClick={SignWithGoogleID}> Google SignIn</button> <br/>
+        {/* </div> */}
+            <button type="button" onClick={SignIn}> Sign In </button>
+            <button type="button" onClick={SignWithGoogleID}> Google SignIn</button> <br/>
             <Link to={"/log-in"}>Already have an account? Log in</Link>
         </div>
         </>

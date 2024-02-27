@@ -27,7 +27,8 @@ export default function navbar() {
 
   return (
     <>
-        <nav className="navbar navbar-expand-lg bg-body-tertiary">
+        {/* <nav className="navbar navbar-expand-lg bg-body"> */}
+        <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
             <div className="container-fluid">
                 <a className="navbar-brand" href="/">BlogsWeb</a>
                 <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -59,13 +60,13 @@ export default function navbar() {
                     {/* Sign In button */}
                     { !(auth?.currentUser?.email) && 
                         <>
-                            <button className="btn btn-primary mx-2" onClick={ToSignIn}>SignIn</button>
-                            <button className="btn btn-primary mx-2" onClick={ToLogIn}>LogIn</button>
+                            <button className="btn btn-light mx-2" onClick={ToSignIn}>SignIn</button>
+                            <button className="btn btn-light mx-2" onClick={ToLogIn}>LogIn</button>
                         </>
                     }
 
                     {auth?.currentUser?.email && 
-                        <button className="btn btn-primary" onClick={SignOut}>SignOut</button>
+                        <button className="btn btn-light" onClick={SignOut}>SignOut</button>
                     }
 
                 </form>

@@ -1,0 +1,7 @@
+.contentbox{
+    background-image: linear-gradient(#FAC406,#FA7B06);
+    display: flex;
+    flex-direction: column;
+    margin: 3vw;
+}
+

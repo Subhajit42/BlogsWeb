@@ -3,6 +3,14 @@ import { auth, db } from '../config/firebase';
 import { collection, getDocs, query, orderBy, limit } from 'firebase/firestore';
 import Navbar from './Navbar';
 import ReadBlogs from './ReadBlogs';
+import './componentsCss/HomePage.css';
+
+import MainHead from './assets/Main.svg';
+import BlogCategories from './BlogCategories';
+// import MainHead from "./componentsCss/MainHead.svg";
+// import { ReactComponent as MainHead } from "./componentsCss/MainHead.svg?react";
+// import MainHead from "./componentsCss/MainHead.svg?react";
+// import { ReactComponent as ReactLogo } from './assets/react.svg'
 
 const RefBlogsDB = collection(db, "Blogs");
 
@@ -22,10 +30,15 @@ export default function HomePage() {
     return (
         <>
             <Navbar />
-            <div className="container my-5">
-                <h1>Welcome to BlogsWeb</h1>
+            <div className="title">
+                <img src={MainHead} className="main head" alt="MainHead" />
+                
+                {/* <h1>Welcome to BlogsWeb</h1> */}
             </div>
-            <div className="container my-5 border">
+
+            {/* <BlogCategories /> */}
+
+            <div className="latestBlogs rounded p-4">
                 <ReadBlogs condition={false} />
             </div>
         </>

@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { collection, getDocs } from 'firebase/firestore';
 import { query, where, orderBy, limit, doc, onSnapshot} from "firebase/firestore"; 
 import { auth, db } from '../config/firebase';
-
+import './componentsCss/ReadBlogs.css';
 
 export default function ReadBlogs(props) {
 
@@ -24,12 +24,12 @@ export default function ReadBlogs(props) {
     const getBlogList = async (q) =>{        
         const data = await getDocs(q);
         const arr = data.docs.map((doc)=>({...doc.data()}))
-        console.log("not using snapshot");
+        // console.log("not using snapshot");
         setBlogList(arr);
     }
 
     const getBlogListSnapshot = ()=> {
-        console.log("using snapshot")
+        // console.log("using snapshot")
         onSnapshot(q,(querySnapshot)=>{
         const arr = querySnapshot.docs.map((doc)=>({...doc.data()}))
         setBlogList(arr);
@@ -48,8 +48,26 @@ export default function ReadBlogs(props) {
 
     return (
         <>
-            <h1>{props.title}</h1>
+            <div className="section" style={{height:"fit-content",marginBottom:"10px"}}>
+                <h1>{props.title}</h1>
+                <div className="line">
+                    <hr />
+                </div>
+            </div>
             {BlogsList.map((blog,index)=>{
+                return (
+                    <div key={index} className='BlogCard'>
+                        <h3>{blog.Title}</h3>
+                        <i> {blog.UserId} </i>
+                        <div>
+                            {blog.Dated}, {blog.Time}
+                        </div>
+                        {/* <p>{blog.Content}</p> */}
+                        
+                    </div>
+                )
+            })}
+            {/* {BlogsList.map((blog,index)=>{
                 return (
                     <div key={index} className='BlogCard'>
                         <h3>{blog.Title}</h3>
@@ -59,7 +77,7 @@ export default function ReadBlogs(props) {
                         
                     </div>
                 )
-            })}
+            })} */}
         </>
     )
 }
