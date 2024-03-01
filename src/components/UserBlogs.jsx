@@ -4,6 +4,7 @@ import { auth, db } from '../config/firebase';
 import NotSignedUp from './NotSignedUp';
 import ReadBlogs from './ReadBlogs';
 import Navbar from './Navbar';
+import './componentsCss/PublishBlogs.css'
 
 export default function UserBlogs(props) {
     
@@ -62,12 +63,13 @@ export default function UserBlogs(props) {
     if (auth?.currentUser?.email == null){
         return (
             <>
-                {/* <NotSignedUp /> */}
+                <NotSignedUp />
             </>
         )
     }else{
         return (
-            <>
+            <div className='MainBody'>
+                <Navbar />
                 <div className="NewBlogs mx-5 my-5">
                     <h3>Publish your Blog</h3>
                     <form>
@@ -76,7 +78,7 @@ export default function UserBlogs(props) {
                         <button onClick={publishBlog} > Publish </button>
                     </form>
                 </div>
-            </>
+            </div>
         )
     }
 }

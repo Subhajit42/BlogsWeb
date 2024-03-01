@@ -12,7 +12,7 @@ import ErrorNotFound from './components/ErrorNotFound.jsx'
 import UserSpace from './components/UserSpace.jsx';
 // import SearchBlogs from './components/SearchBlogs.jsx';
 import ReadBlogsUser from './components/ReadBlogsUser.jsx';
-import Blogs from './components/CreateBlogs.jsx';
+// import Blogs from './components/CreateBlogs.jsx';
 import UserBlogs from './components/UserBlogs.jsx';
 
 
@@ -32,7 +32,8 @@ const router = createBrowserRouter([
     element: <UserSpace />
   },{
     path: "/update-blog",
-    element: <Blogs />
+    element: <UserBlogs />
+    // element: <Blogs />
   }
   ,{
     path: '/test',

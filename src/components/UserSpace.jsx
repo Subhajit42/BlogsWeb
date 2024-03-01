@@ -1,26 +1,50 @@
 import React from 'react'
 import Navbar from './Navbar'
-import UserBlogs from './UserBlogs'
 import ReadBlogsUser from './ReadBlogsUser'
-import { signOut } from 'firebase/auth'
-import { auth } from '../config/firebase'
 import { useNavigate } from 'react-router-dom'
+import './componentsCss/UserSpace.css'
+import { auth } from '../config/firebase'
+import NotSignedUp from './NotSignedUp'
 
 export default function UserSpace() {
 
+    const navigator = useNavigate();
+
+    const writeBlog = ()=>{
+        navigator('/update-blog');
+    }
+
+
+    if (auth?.currentUser?.email == null){
+        return (
+            <>
+                <Navbar/>
+                    {/* <h3>Please SignUp or LogIn to continue.</h3>
+                    <div>
+                        <button className='btn btn-primary' onClick={()=>navigator('/sign-in')}>SignIn</button> <br/>
+                        <button className='btn btn-primary' onClick={()=>navigator('/log-in')}>LogIn</button>
+                    </div> */}
+                    
+                <NotSignedUp/>
+            </>
+        )
+    }
+
     return (
-        <>
+        <div className='UserSpaceBody'>
             <Navbar />
 
-            {/* <div className="d-flex mx-5 my-5">
-                <button onClick={SignOut}>Sign Out</button>
+            
+
+            <div className="headingElement">
+                <h3>Welcome, User</h3>
+                <div className="head-buttons">
+                    <button className='writeBlog-btn' onClick={writeBlog}>Write Blog</button>
+                </div>
             </div>
-            <UserBlogs title={"My Latest Blogs"} /> */}
-            <h2>Write your own Blog.</h2>
-            <UserBlogs />
             <ReadBlogsUser />
 
-        </>
+        </div>
     )
 }
 

@@ -2,6 +2,7 @@ import React from 'react'
 import { useNavigate} from 'react-router-dom'
 import { signOut } from 'firebase/auth'
 import { auth } from '../config/firebase'
+import './componentsCss/Navbar.css'
 
 export default function navbar() {
 
@@ -62,13 +63,13 @@ export default function navbar() {
                     {/* Sign In button */}
                     { !(auth?.currentUser?.email) && 
                         <>
-                            <button className="btn btn-light mx-2" onClick={ToSignIn}>SignIn</button>
-                            <button className="btn btn-light mx-2" onClick={ToLogIn}>LogIn</button>
+                            <button className="btn btn-warning mx-2" onClick={ToSignIn}>SignIn</button>
+                            <button className="btn btn-warning mx-2" onClick={ToLogIn}>LogIn</button>
                         </>
                     }
 
                     {auth?.currentUser?.email && 
-                        <button className="btn btn-light" onClick={SignOut}>SignOut</button>
+                        <button className="btn btn-warning" onClick={SignOut}>SignOut</button>
                     }
 
                 </div>

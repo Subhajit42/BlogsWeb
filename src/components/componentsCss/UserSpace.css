@@ -1,0 +1,202 @@
+.UserSpaceBody{
+    background-image: url('../assets/AbstractBg.png');
+    /* background-image: url('../assets/FreepikBg.png'); */
+    /* background-repeat: repeat; */
+    /* background-size: contain; */
+    background-size: cover;
+    background-attachment: fixed;
+    background-color: rgb(0,0,0,0.12);
+    /* top: 0%; */
+    height: auto;
+}
+
+.second-section{
+    display: flex;
+    overflow-x: hidden;
+}
+
+.recentBlogsBody{
+    width: 75%;
+    background: rgb(0, 0, 0, 0.3);
+    margin: 2.5%;
+    border-radius: 4px;
+    margin-bottom: 5%;
+}
+
+.headingElement{
+    background-image: linear-gradient(#FAC404,#FA7B06);
+    margin: 10vh;
+    margin-top: 10vh;
+    border-radius: 10px;
+    height: 20vh;
+    display: flex;
+}
+
+.headingElement > h3{
+    color: black;
+    margin: 10px 10px;
+}
+
+.head-buttons{
+    margin-left: auto;
+}
+
+.writeBlog-btn{
+    margin: 8px;
+    position: sticky;
+    top: 100%;
+    margin-left: auto;
+    background-color: #303030;
+    color: #FAC406;
+    border-radius: 4px;
+    font-size: 1.25em;
+    /* height: 2.5em; */
+}
+
+#section-heading{
+    margin: 10px;
+    padding-left: 7vh;
+}
+
+#section-heading::after{
+    content: '';
+    display: block;
+    /* width: 95%; */
+    width: 95%;
+    height: 2px;
+    background: #FAC404;
+    margin-top: 10px;
+    transform: translateX(-2vh);
+}
+
+.BlogCardUser{
+    /* width: 90%; */
+    color: #FAC404;
+    background-color: rgb(0,0,0,0.12);
+    backdrop-filter: blur(10px);
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    /* display: grid;
+    grid-template-columns: auto auto auto;
+    align-items: center; */
+}
+
+.dated{
+    z-index: 1;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.buttons-utility > button {
+    padding: 0px;
+    transform: scale(0.7);
+}
+
+.buttons-utility{
+    margin-left: auto;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    /* position: absolute;
+    bottom: 40%;
+    left: 87%; */
+}
+
+
+.Analytics{
+    width: 30%;
+    height: fit-content;
+    background: rgb(0, 0, 0, 0.3);
+    margin: 2.5%;
+    padding: 2%;
+    padding-top: 0%;
+    /* margin-top: 0%; */
+    border-radius: 4px;
+}
+
+.row{
+    font-size: 1.5em;
+}
+
+.analyticsCard{
+    margin-right: 10%;
+    margin-top: 0%;
+    margin-bottom: 0%;
+}
+
+
+
+@media screen and (max-width: 600px){
+    .headingElement{
+        margin: 5vh;
+        margin-top: 3vh;
+    }
+
+    .BlogCardUser{
+        padding: 0px !important;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .BlogCardUser > h3{
+        margin-right: auto;
+        padding: 15px;
+        padding-bottom: 2px
+    }
+
+    #section-heading{
+        padding: 5%;
+    }
+
+    .dated{
+        padding-left: 15px;
+        position: relative;
+        top: 0%;
+        left: 0%;
+        transform: translate(0%, 0%);
+        margin-right: auto;
+    }
+
+    #section-heading::after{
+        content: '';
+        display: block;
+        /* width: 95%; */
+        width: 110%;
+        height: 2px;
+        background: #FAC404;
+        margin-top: 10px;
+        transform: translateX(-2vh);
+    }
+
+    .second-section{
+        display: flex;
+        flex-direction: column-reverse;
+        overflow-x: hidden;
+    }
+
+    .recentBlogsBody{
+        width: auto;
+        margin: 5vh;
+    }
+
+    .Analytics{
+        /* margin: 48px; */
+        margin: 5vh;
+        margin-top: 0px;
+        margin-bottom: 10px;
+        width: auto;
+    }
+
+    /* .analyticsCard{
+        margin-right: 48px;
+    } */
+
+    .UserSpaceBody{
+        height: auto;
+    }
+}

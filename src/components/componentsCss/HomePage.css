@@ -29,13 +29,18 @@
 } */
 
 .latestBlogs{
-    background-image: linear-gradient(#FAC406,#FA7B06);
+    /* background-image: linear-gradient(#FAC406,#FA7B06); */
+    background-image: linear-gradient(#FAC406,#FA7B06,#9e12ef);
     display: flex;
     flex-direction: column;
     width: auto;
     margin: 3vw;
 }
 
+.BlogCard{
+    background-color: rgb(0,0,0,0.12);
+    color: aliceblue;
+}
 
 
 @media (max-width: 768px) {
