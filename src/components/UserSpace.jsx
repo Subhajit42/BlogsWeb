@@ -2,9 +2,9 @@ import React from 'react'
 import Navbar from './Navbar'
 import ReadBlogsUser from './ReadBlogsUser'
 import { useNavigate } from 'react-router-dom'
-import './componentsCss/UserSpace.css'
 import { auth } from '../config/firebase'
 import NotSignedUp from './NotSignedUp'
+import './componentsCss/UserSpace.css'
 
 export default function UserSpace() {
 

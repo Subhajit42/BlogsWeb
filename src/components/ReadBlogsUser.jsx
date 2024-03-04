@@ -57,8 +57,6 @@ export default function ReadBlogs(props) {
     }
 
 
-
-
     
 
     return (
@@ -68,7 +66,7 @@ export default function ReadBlogs(props) {
                 {BlogsList.map((blog,index)=>{
                     return (
                         // <div className="blogBg">
-                            <div key={index} className='BlogCardUser my-5 mx-5 p-4'>
+                            <div key={index} className='BlogCardUser my-4 mx-3 p-4'>
                                 <h3>{blog.Title}</h3>
                                 {/* <small> <i> {blog.UserId} </i> </small> */}
                                 <i>
@@ -108,10 +106,27 @@ export default function ReadBlogs(props) {
                 <h3 id="section-heading" style={{paddingLeft: "0px"}}>Analytics</h3>
                 <div className="analyticsBody">
                     <div className="analyticsCard BlogCardUser my-5 p-4">
+
+                        {/* <table>
+                            <tr>
+                                <th>Total Blogs</th>
+                                <th>Total Blogs</th>
+                            </tr>
+                            <tr>
+                                <td>{BlogsList.length}</td>
+                                <td>{BlogsList.length}</td>
+                            </tr>
+                        </table> */}
+                    <table>
                         <div className="row">
-                            <div className="data-head"> Total Blogs </div>
-                            <div className="data"> {BlogsList.length} </div>
+                            <div className="col"> Total Blogs </div>
+                            <div className="col"> {BlogsList.length} </div>
                         </div>
+                        <div className="row">
+                            <div className="col"> Total Blogs </div>
+                            <div className="col"> {BlogsList.length} </div>
+                        </div>
+                    </table>
                     </div>
                 </div>
             </div>

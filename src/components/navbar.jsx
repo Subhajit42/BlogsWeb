@@ -2,7 +2,7 @@ import React from 'react'
 import { useNavigate} from 'react-router-dom'
 import { signOut } from 'firebase/auth'
 import { auth } from '../config/firebase'
-import './componentsCss/Navbar.css'
+// import './componentsCss/Navbar.css'
 
 export default function navbar() {
 
@@ -30,7 +30,6 @@ export default function navbar() {
 
   return (
     <>
-        {/* <nav className="navbar navbar-expand-lg bg-body"> */}
         <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
             <div className="container-fluid">
                 <a className="navbar-brand" href="/">BlogsWeb</a>

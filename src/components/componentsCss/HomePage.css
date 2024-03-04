@@ -1,10 +1,4 @@
-.title{
-    /* background-color: antiquewhite; */
-    /* background-image: url('https://images.unsplash.com/photo-1612838320003-3e3e3e3e3e3e'); */
-    /* background-image: url('https://media.istockphoto.com/id/1004779172/photo/top-view-of-office-desk-table-with-modern-accessories-supplies-on-color-background.webp?b=1&s=170667a&w=0&k=20&c=DZRtdfQ27xcWspQI8hQZnRTja4bpN58hnEqhP4UbPHM='); */
-    /* background-image: url('MainHead.svg'); */
-    /* background-repeat: no-repeat;
-    background-size: cover; */
+/* .title{
     margin: 0;
     width: 100%;
     height: 55vh;
@@ -22,14 +16,7 @@
     z-index: -1;
 }
 
-/* .title > h1{
-    font-size: 90px;
-    color: #000;
-    text-align: center;
-} */
-
 .latestBlogs{
-    /* background-image: linear-gradient(#FAC406,#FA7B06); */
     background-image: linear-gradient(#FAC406,#FA7B06,#9e12ef);
     display: flex;
     flex-direction: column;
@@ -51,4 +38,101 @@
     .title > h1{
         font-size: 50px;
     }
+} */
+
+.section-title{
+    width: 100%;
+    /* aspect-ratio: 1/1; */
+    background-image: url("../assets/BgImage.png");
+    /* background-size: contain; */
+    background-size: cover;
+    background-repeat: no-repeat;
+    top: 0%;
+    position: absolute;
+    overflow-x: hidden;
+    height: fit-content;
+    padding-bottom: 2%;
+}
+
+.section-title > img {
+    width: 100vw;
+    transform: scale(0.7);
+}
+
+.features{
+    display: flex;
+    justify-content: flex-end;
+    height: fit-content;
+}
+
+.feature{
+    font-size: 0.8rem;
+    width: 14rem;
+    height: fit-content;
+}
+
+h6{
+    font-size: larger;
+}
+
+
+.f1{
+    padding: 0 1.5em;
+}
+
+.f2{
+    border-left: 4px solid white;
+    padding: 0 1.5em;
+}
+
+.line{
+    transform: scaleY(0.5);
+    height: min-content;
+}
+
+@media screen and (max-width: 600px){
+
+    .section-title{
+        /* background-size: contain; */
+        position: unset;
+        padding-bottom: 10%;
+    }
+
+    
+    .section-title > img {
+        transform: scale(0.8);
+        position: relative;
+        top: 10%;
+    }
+
+    .features{
+        display: none;
+    }
+
+
+    /* .features{
+        background-color: #070C20;
+        margin-top: 6%;
+        padding-top: 5%;
+        flex-direction: column;
+        align-items: center;
+        top: 30%;
+        position: relative;
+    }
+    
+    .f1{
+        padding-bottom: 2%;
+    }
+    
+    .f2{
+        border-left: none;
+        border-top: 4px solid white;
+        padding: 1em 0;
+        align-content: center;
+    }
+    
+    .feature{
+        text-align: center;
+    } */
+
 }

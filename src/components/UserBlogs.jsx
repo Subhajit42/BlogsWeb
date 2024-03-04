@@ -70,12 +70,13 @@ export default function UserBlogs(props) {
         return (
             <div className='MainBody'>
                 <Navbar />
-                <div className="NewBlogs mx-5 my-5">
-                    <h3>Publish your Blog</h3>
-                    <form>
-                        <input placeholder='Title' onChange={(e)=>setBlogTitle(e.target.value)} />  <br/>
-                        <input placeholder='Content' onChange={(e)=>setBlogContent(e.target.value)} /> <br/>
-                        <button onClick={publishBlog} > Publish </button>
+                <div className="NewBlogs mx-3 my-2">
+                    <h3 id='section-heading'>Publish your Blog</h3>
+                    <form id='publishBlog'>
+                        <input id='title' placeholder='Title' onChange={(e)=>setBlogTitle(e.target.value)} />  <br/>
+                        <textarea id='content' placeholder='Content' onChange={(e)=>setBlogContent(e.target.value)} /> <br/>
+                        {/* <button id="submitBlog-btn" onClick={publishBlog} > Publish </button> */}
+                        <button type="button" className="btn btn-outline-warning" onClick={publishBlog} style={{margin: "10px"}}> Publish </button>
                     </form>
                 </div>
             </div>
