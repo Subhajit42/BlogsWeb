@@ -4,6 +4,8 @@ import { signInWithEmailAndPassword, signInWithPopup } from 'firebase/auth';
 import { Link, useNavigate } from 'react-router-dom';
 import Navbar from "./Navbar"
 import './componentsCss/SignIn.css';
+import NewNavbar from './NewNavbar';
+import googleIcon from './assets/googleIcon.png';
 
 export default function logIn() {
 
@@ -57,23 +59,31 @@ export default function logIn() {
 
     return (
     <>
-        <Navbar/>
-        <div className="body">
-            <div className='container contentbox'>
-                <div className="heading">
-                {/* <div className='mx-5 my-5'> */}
-                    <center>
-                        <h2> Log In</h2>
-                    </center>
+        {/* <Navbar/> */}
+        <NewNavbar />
+
+        <div className="body ml">
+            <div className='contentbox'>
+                <div className="menu" style={{animation: "fadeInLeft 1s ease-in-out"}}>
+                    <div className="heading">
+                        <center>
+                            <h2> Log In</h2>
+                        </center>
+                    </div>
+                        {/* <form> */}
+                            <input id="username" placeholder='Username' onChange={(e)=> setUsername(e.target.value)} />
+                            <input id="password" type="password" placeholder='Password' onChange={(e)=> setPassword(e.target.value)} />
+                            <button type="button" className="form-btn" onClick={LogIn}> Log In </button>
+                            <center><div className='or'>or</div></center>
+                            <button type="button" className="form-btn-google" onClick={SignWithGoogleID}>
+                                <img src={googleIcon} alt='' style={{width:"25px"}}/>
+                            </button>
+                        {/* </form> */}
+                        <Link id='redirect-link' to="/sign-in">Don't have an account? Sign in</Link>
+                    </div>
+                <div className="logIn-image">
+                        {/* <img src={signInImage} alt="signIn" style={{position:"relative"}}/> */}
                 </div>
-                    {/* <form> */}
-                        <input placeholder='username' onChange={(e)=> setUsername(e.target.value)} />
-                        <input type="password" placeholder='password' onChange={(e)=> setPassword(e.target.value)} />
-                        <button type="button" className="form-btn" onClick={LogIn}> Log In </button>
-                        <center><p>or</p></center>
-                        <button type="button" className="form-btn" onClick={SignWithGoogleID}> Google SignIn</button>
-                    {/* </form> */}
-                    <Link id='redirect-link' to="/sign-in">Don't have an account? Sign in</Link>
             </div>
         </div>
     </>
