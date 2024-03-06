@@ -6,7 +6,8 @@
 } */
 
 .NotSignedBg{
-    background-image: url('../assets/AbstractBg.png');
+    /* background-image: url('../assets/AbstractBg.png'); */
+    background-image: url('../assets/BgImage.png');
     background-size: cover;
     background-attachment: fixed;
     background-color: rgb(0,0,0,0.12);
@@ -18,7 +19,6 @@
 }
 
 #NotSigned{
-/* .headingElement{ */
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;

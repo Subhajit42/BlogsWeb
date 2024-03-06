@@ -1,12 +1,169 @@
+@font-face {
+    font-family: '7SegmentDisplay';
+    src: url('../assets/DSEG14Modern-Italic.ttf');
+}
+
+
 .UserSpaceBody{
-    background-image: url('../assets/AbstractBg.png');
-    /* background-image: url('../assets/FreepikBg.png'); */
-    /* background-repeat: repeat; */
-    /* background-size: contain; */
+    background-image: url('../assets/BgImage.png');
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+.UserSpaceLayout{
+    display: flex;
+    justify-content: space-evenly;
+    overflow-x: hidden;
+}
+
+.column-1{
+    width: 75%;
+    display: flex;
+    flex-direction: column;
+}
+
+.e-1{
+    clip-path: polygon(0 20%, 100% 20%, 100% 80%, 0 80%);
+    margin: -15px 26px;
+    margin-top: -6%;
+}
+
+.e-2{
+    margin-top: -2% !important;
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: center;
+    justify-content: space-evenly;
+    padding-left: 5%;
+    margin-bottom: 1% !important;
+    padding-bottom: 1% !important;
+    gap: 20px;
+}
+
+.greetings{
+    margin: 2.5% 0;
+    padding-right: 6%;
+    margin-bottom: 0;
+    /* border-right: 4px solid white; */
+}
+
+.line{
+    width: 2px;
+    height: 130%;
+    border: 2px solid white;
+}
+
+.head-buttons{
+    margin: 4px;
+    margin-right: 5%;
+}
+
+.head-buttons > button{
+    background-color: #DA3D8D;
+    color: white;
+    padding: 6%;
+    margin: 6%;
+    width: max-content;
+    border-radius: 4px;
+
+}
+.head-buttons > button:hover{
+    background-color: #04113D;
+    /* color: #DA3D8D; */
+    color: white;
+    border: 1px solid #DA3D8D;
+}
+
+/* .e-2 > button {
+    height: 2em;
+} */
+
+
+.e-2, .e-3, .e-4, .e-5{
+    margin: 2.5%;
+    background: #d9d9d92d;
+    border-radius: 6px;
+    padding: 2%;
+    padding-top: 0%;
+    /* background-color: rgb(0,0,0,0.12); */
+    backdrop-filter: blur(10px);
+}
+
+.column-2{
+    width: 25%;
+    max-width: 300px;
+    gap: 5%;
+    display: flex;
+    flex-direction: column;
+    margin-top: 18px;
+}
+
+.e-4{
+    width: fit-content;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+
+/* .day-time > *, .date > *{
+    margin: 0;
+} */
+
+.day-time{
+    /* flex-wrap: wrap; */
+    padding-top: 10px;
+}
+#day{
+    justify-content: space-around;
+    margin-left: 6px;
+}
+#time{
+    margin-right: 10px;
+}
+#day,.date{
+    margin-top: auto;
+    margin-bottom: 13px;
+    font-style: italic;
+    text-transform: uppercase;
+}
+.date > *{
+    margin-bottom: 2px;
+}
+.date > .line{
+    height: 130%;
+}
+.date{
+    background-color: #04113D;
+    border-radius: 4px;
+}
+#time{
+    font-family: '7SegmentDisplay';
+}
+.date > .line{
+    border: 0;
+    border-left: 1px solid white;
+}
+
+.day-time, .date{
+    display: flex;
+    align-items: center;
+    width: -webkit-fill-available;
+    justify-content: space-around;
+}
+
+
+
+
+
+
+
+
+/* .UserSpaceBody{
+    background-image: url('../assets/BgImage.png');
     background-size: cover;
     background-attachment: fixed;
     background-color: rgb(0,0,0,0.12);
-    /* top: 0%; */
     height: auto;
 }
 
@@ -50,7 +207,6 @@
     color: #FAC406;
     border-radius: 4px;
     font-size: 1.25em;
-    /* height: 2.5em; */
 }
 
 #section-heading{
@@ -61,7 +217,6 @@
 #section-heading::after{
     content: '';
     display: block;
-    /* width: 95%; */
     width: 95%;
     height: 2px;
     background: #FAC404;
@@ -70,7 +225,6 @@
 }
 
 .BlogCardUser{
-    /* width: 90%; */
     color: #FAC404;
     background-color: rgb(0,0,0,0.12);
     backdrop-filter: blur(10px);
@@ -79,9 +233,6 @@
     align-items: center;
     justify-content: space-between;
     flex-wrap: wrap;
-    /* display: grid;
-    grid-template-columns: auto auto auto;
-    align-items: center; */
 }
 
 .dated{
@@ -102,9 +253,6 @@
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    /* position: absolute;
-    bottom: 40%;
-    left: 87%; */
 }
 
 
@@ -115,7 +263,6 @@
     margin: 2.5%;
     padding: 2%;
     padding-top: 0%;
-    /* margin-top: 0%; */
     border-radius: 4px;
 }
 
@@ -165,7 +312,6 @@
     #section-heading::after{
         content: '';
         display: block;
-        /* width: 95%; */
         width: 110%;
         height: 2px;
         background: #FAC404;
@@ -185,18 +331,14 @@
     }
 
     .Analytics{
-        /* margin: 48px; */
         margin: 5vh;
         margin-top: 0px;
         margin-bottom: 10px;
         width: auto;
     }
 
-    /* .analyticsCard{
-        margin-right: 48px;
-    } */
 
     .UserSpaceBody{
         height: auto;
     }
-}
+} */
