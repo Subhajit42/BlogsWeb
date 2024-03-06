@@ -58,7 +58,7 @@ export default function UserSpace() {
                         <div className="line"></div>
 
                         <div className="head-buttons">
-                            <button className='writeBlog-btn btn btn-dark' onClick={writeBlog}>Write Blog</button>
+                            <button className='writeBlog-btn' onClick={writeBlog}>Write Blog</button>
                         </div>
                     </div>
 

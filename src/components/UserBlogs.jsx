@@ -4,10 +4,14 @@ import { auth, db } from '../config/firebase';
 import NotSignedUp from './NotSignedUp';
 import ReadBlogs from './ReadBlogs';
 import Navbar from './Navbar';
+import NewNavbar from './NewNavbar';
 import './componentsCss/PublishBlogs.css'
+import { useNavigate } from 'react-router-dom';
 
 export default function UserBlogs(props) {
     
+    const navigator = useNavigate();
+
     const RefBlogSite = collection(db,"Blogs")
 
     const [blogTitle, setBlogTitle] = useState("");
@@ -54,6 +58,13 @@ export default function UserBlogs(props) {
         }
     }
 
+    const cancelPublish = () =>{
+        const choice = confirm("Do you want to cancel this blog? The contents written wont be saved.");
+        if (choice){
+            navigator('/user');
+        }
+    }
+
     document.addEventListener("submit",(e)=>{
         e.preventDefault();
         publishBlog();
@@ -69,14 +80,18 @@ export default function UserBlogs(props) {
     }else{
         return (
             <div className='MainBody'>
-                <Navbar />
+                {/* <Navbar /> */}
+                <NewNavbar />
                 <div className="NewBlogs mx-3 my-2">
                     <h3 id='section-heading'>Publish your Blog</h3>
                     <form id='publishBlog'>
                         <input id='title' placeholder='Title' onChange={(e)=>setBlogTitle(e.target.value)} />  <br/>
                         <textarea id='content' placeholder='Content' onChange={(e)=>setBlogContent(e.target.value)} /> <br/>
                         {/* <button id="submitBlog-btn" onClick={publishBlog} > Publish </button> */}
-                        <button type="button" className="btn btn-outline-warning" onClick={publishBlog} style={{margin: "10px"}}> Publish </button>
+                        <div className="utility-btns-publish">
+                            <button type="button" className="btn btn-outline-warning" onClick={publishBlog} style={{margin: "10px"}}> Publish </button>
+                            <button type="button" className="btn btn-outline-warning" onClick={cancelPublish} style={{margin: "10px"}}> Cancel </button>
+                        </div>
                     </form>
                 </div>
             </div>

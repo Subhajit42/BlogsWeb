@@ -44,7 +44,6 @@
     margin: 2.5% 0;
     padding-right: 6%;
     margin-bottom: 0;
-    /* border-right: 4px solid white; */
 }
 
 .line{
@@ -69,14 +68,9 @@
 }
 .head-buttons > button:hover{
     background-color: #04113D;
-    /* color: #DA3D8D; */
     color: white;
     border: 1px solid #DA3D8D;
 }
-
-/* .e-2 > button {
-    height: 2em;
-} */
 
 
 .e-2, .e-3, .e-4, .e-5{
@@ -85,7 +79,6 @@
     border-radius: 6px;
     padding: 2%;
     padding-top: 0%;
-    /* background-color: rgb(0,0,0,0.12); */
     backdrop-filter: blur(10px);
 }
 
@@ -106,20 +99,14 @@
     align-items: center;
 }
 
-/* .day-time > *, .date > *{
-    margin: 0;
-} */
-
 .day-time{
-    /* flex-wrap: wrap; */
     padding-top: 10px;
 }
 #day{
+    font-size: 1.25em;
     justify-content: space-around;
     margin-left: 6px;
-}
-#time{
-    margin-right: 10px;
+    margin-right: 6px;
 }
 #day,.date{
     margin-top: auto;
@@ -152,7 +139,57 @@
     justify-content: space-around;
 }
 
+/* @media screen and (max-width:700px) {
+    .day-time{
+        flex-wrap: wrap;
+    }
+} */
 
+
+@media screen and (max-width:600px) {
+    .UserSpaceLayout{
+        background-image: url('../assets/BgImage.png');
+        background-size: cover;
+        height: -webkit-fill-available;
+    }
+    .column-2{
+        display: none;
+    }
+    .column-1{
+        width: 100%;
+    }
+    .e-2{
+        display: inline;
+        max-height: fit-content;
+        height: 40%;
+    }
+    .e-2 > .greetings > h2{
+        font-weight: 400 !important;
+        font-size: 1.25em;
+    }
+    .greetings{
+        width: 100%;
+        padding-bottom: 2%;
+        margin-bottom: 2%;
+    }
+    .e-2 > .line{
+        display: none;
+    }
+    .e-2 > .head-buttons {
+        margin: 0;
+        display: flex;
+        justify-content: flex-end;
+    }
+    .e-2 > .head-buttons > button{
+        height: inherit;
+        margin: 0;
+        padding: 2%;
+    }
+    .e-3{
+        display: none;
+        margin-top: 50px;
+    }
+}
 
 
 
