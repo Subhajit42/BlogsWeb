@@ -10,6 +10,7 @@ import NotSignedUp from './NotSignedUp'
 import TitleBlogsWeb from './assets/BlogsWeb.svg'
 import './componentsCss/UserSpace.css'
 import CalendarWB from './CalenderWB'
+import SearchBlogs from './SearchBlogs'
 
 export default function UserSpace() {
 
@@ -63,7 +64,7 @@ export default function UserSpace() {
                     </div>
 
                     <div className="UserBlogs e-3">
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid porro, impedit maxime quia quibusdam voluptas libero commodi illo est perspiciatis labore maiores vitae facere, dolore asperiores quis ipsam beatae ducimus.
+                        <SearchBlogs />
                     </div>
 
                 </div>

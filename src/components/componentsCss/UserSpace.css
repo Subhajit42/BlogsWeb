@@ -13,7 +13,7 @@
 .UserSpaceLayout{
     display: flex;
     justify-content: space-evenly;
-    overflow-x: hidden;
+    /* overflow-x: hidden; */
 }
 
 .column-1{
@@ -92,7 +92,8 @@
 }
 
 .e-4{
-    width: fit-content;
+    width: auto;
+    height: fit-content;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
@@ -139,11 +140,12 @@
     justify-content: space-around;
 }
 
-/* @media screen and (max-width:700px) {
+@media screen and (max-width:1080px) {
     .day-time{
         flex-wrap: wrap;
+        flex-direction: column-reverse;
     }
-} */
+}
 
 
 @media screen and (max-width:600px) {
@@ -185,9 +187,25 @@
         margin: 0;
         padding: 2%;
     }
-    .e-3{
+    /* .e-3{
         display: none;
         margin-top: 50px;
+    } */
+
+    #section-heading{
+        font-size: 1.25em;
+    }
+    #section-heading::after{
+        height: 2px;
+        margin-top: 1%;
+    }
+    .section-sub-heading > h3{
+        font-size: 1.25em;
+        margin: 2%;
+    }
+    .section-sub-heading > h3::after{
+        width: 45% !important;
+        transform: translateX(0) !important;
     }
 }
 

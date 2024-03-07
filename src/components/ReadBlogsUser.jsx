@@ -4,7 +4,7 @@ import { query, where, orderBy, limit, doc, onSnapshot} from "firebase/firestore
 import { auth, db } from '../config/firebase';
 import { useNavigate } from 'react-router-dom';
 import NotSignedUp from './NotSignedUp';
-
+import './componentsCss/ReadBlogs.css';
 
 
 
@@ -102,12 +102,12 @@ export default function ReadBlogs(props) {
                 })}
             </div >
 
-            <div className="Analytics">
+            {/* <div className="Analytics">
                 <h3 id="section-heading" style={{paddingLeft: "0px"}}>Analytics</h3>
                 <div className="analyticsBody">
                     <div className="analyticsCard BlogCardUser my-5 p-4">
 
-                        {/* <table>
+                        <table>
                             <tr>
                                 <th>Total Blogs</th>
                                 <th>Total Blogs</th>
@@ -116,7 +116,7 @@ export default function ReadBlogs(props) {
                                 <td>{BlogsList.length}</td>
                                 <td>{BlogsList.length}</td>
                             </tr>
-                        </table> */}
+                        </table>
                     <table>
                         <div className="row">
                             <div className="col"> Total Blogs </div>
@@ -129,7 +129,7 @@ export default function ReadBlogs(props) {
                     </table>
                     </div>
                 </div>
-            </div>
+            </div> */}
         </div>
     )
 }

@@ -10,8 +10,8 @@ import SignIn from "./components/SignIn.jsx";
 import { createBrowserRouter, RouterProvider} from 'react-router-dom'
 import ErrorNotFound from './components/ErrorNotFound.jsx'
 import UserSpace from './components/UserSpace.jsx';
-// import SearchBlogs from './components/SearchBlogs.jsx';
-import ReadBlogsUser from './components/ReadBlogsUser.jsx';
+import SearchBlogs from './components/SearchBlogs.jsx';
+// import ReadBlogsUser from './components/ReadBlogsUser.jsx';
 // import Blogs from './components/CreateBlogs.jsx';
 import UserBlogs from './components/UserBlogs.jsx';
 
@@ -38,8 +38,8 @@ const router = createBrowserRouter([
   ,{
     path: '/test',
     // element: <ReadBlogs condition={false}/>
-    // element: <SearchBlogs />
-    element: <ReadBlogsUser />
+    element: <SearchBlogs />
+    // element: <ReadBlogsUser />
   }
 ])
 

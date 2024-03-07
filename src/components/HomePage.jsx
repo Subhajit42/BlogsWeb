@@ -5,12 +5,12 @@ import NewNavbar from './NewNavbar';
 import BgImage from './assets/BgImage.png'
 
 import titleText from './assets/Title.svg'
+import BlogCategories from './BlogCategories';
 import './componentsCss/HomePage.css';
 
 // import Navbar from './Navbar';
 // import ReadBlogs from './ReadBlogs';
 // import MainHead from './assets/Main.svg';
-// import BlogCategories from './BlogCategories';
 // import MainHead from "./componentsCss/MainHead.svg";
 // import { ReactComponent as MainHead } from "./componentsCss/MainHead.svg?react";
 // import MainHead from "./componentsCss/MainHead.svg?react";
