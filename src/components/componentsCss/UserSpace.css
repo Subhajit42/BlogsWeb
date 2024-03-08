@@ -58,8 +58,8 @@
 }
 
 .head-buttons > button{
-    background-color: #DA3D8D;
-    color: white;
+    background-color: #FAC406;
+    color: #04113D;
     padding: 6%;
     margin: 6%;
     width: max-content;
@@ -68,12 +68,12 @@
 }
 .head-buttons > button:hover{
     background-color: #04113D;
-    color: white;
-    border: 1px solid #DA3D8D;
+    color: #FAC406;
+    border: 1.6px solid #FAC406;
 }
 
 
-.e-2, .e-3, .e-4, .e-5{
+.e-2, .e-3, .e-4, .e-5, .e-6{
     margin: 2.5%;
     background: #d9d9d92d;
     border-radius: 6px;
@@ -85,7 +85,7 @@
 .column-2{
     width: 25%;
     max-width: 300px;
-    gap: 5%;
+    gap: 1%;
     display: flex;
     flex-direction: column;
     margin-top: 18px;
@@ -152,14 +152,32 @@
     .UserSpaceLayout{
         background-image: url('../assets/BgImage.png');
         background-size: cover;
-        height: -webkit-fill-available;
+        /* height: -webkit-fill-available; */
+        flex-direction: column;
     }
-    .column-2{
-        display: none;
-    }
+    
     .column-1{
         width: 100%;
     }
+    .column-2{
+        width: 100%;
+        max-width: none;
+        margin-top: 0px;
+    }
+    
+    .e-4,.e-5{
+        display: none;
+    }
+    .e-6{
+        width: auto;
+    }
+
+    .e-1{
+        padding-top: 15%;
+        padding-bottom: 5%;
+    }
+
+
     .e-2{
         display: inline;
         max-height: fit-content;
@@ -187,10 +205,11 @@
         margin: 0;
         padding: 2%;
     }
-    /* .e-3{
-        display: none;
-        margin-top: 50px;
-    } */
+    .e-3{
+        /* display: none; */
+        /* margin-top: 50px; */
+        height: fit-content !important;
+    }
 
     #section-heading{
         font-size: 1.25em;

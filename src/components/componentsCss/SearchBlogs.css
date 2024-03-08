@@ -10,17 +10,19 @@
     text-transform: uppercase;
     font-style: italic;
     margin: 30px 0px;
-    padding-left: 3vw;
+    width: -webkit-fill-available !important;
+    /* padding-left: 3vw; */
 }
 #section-heading::after{
     content: '';
     display: block;
-    width: 120% !important;
+    /* width: 120% !important; */
     height: 3px !important;
     background: white !important;
     /* background: #FAC404; */
     margin-top: 10px;
     transform: translateX(-3vh);
+    
 }
 
 .searchBar > input {
@@ -28,8 +30,10 @@
     margin: 10px;
 }
 .searchBar > button {
-    background-color: #DA3D8D;
-    color: white;
+    background-color: #FAC406;
+    color: #04113D;
+    /* background-color: #DA3D8D;
+    color: white; */
     padding: 4px 6px;
     margin: 10px;
     width: max-content;
@@ -46,7 +50,7 @@
 
 .section-sub-heading > h3{
     padding-left: 3vw;
-    margin: 5%;
+    /* margin: 5%; */
     margin-bottom: 2%;
     margin-left: 0;
 }
@@ -61,37 +65,81 @@
 }
 
 .blog{
-    background: #d9d9d92d;
+    background: #04113D;
+    /* background: #d9d9d92d; */
     backdrop-filter: blur(10px);
     border-radius: 6px;
     padding: 2%;
     margin: 2%;
 }
+.blog:hover{
+    border: 1px solid #FAC406;
+    /* scale: 1.02; */
+}
 
 .search-head{
     display: flex;
-    flex-direction: column;
     align-content: baseline;
+    flex-direction: column;
 }
 .searchBar{
+    width: -webkit-fill-available;
     display: flex;
     align-items: center;
+    justify-content: center;
 }
-.searchBar > input{
+/* .searchBar > input{
     margin-left: 5%;
-}
+} */
 
 .blogs-list{
     display: flex;
     flex-direction: column;
 }
 
-.blog{
+.blog > a{
+    text-decoration: none;
+    color: white;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
     align-items: center;
 }
-.blog > h5 {
+
+.blog > a > h5{
     font-weight: 400;
+}
+
+
+
+@media screen and (max-width: 600px){
+
+    .mainBody{
+        width: -webkit-fill-available;
+    }
+
+    .search-head{
+        align-self: flex-start;
+    }
+
+    .search-head > #section-heading{
+        font-size: 1.5em;
+        align-self: flex-start;
+        width: 80vw;
+    }
+    .search-head > #section-heading::after{
+        width: 98% !important;
+    }
+    .searchBar > input{
+        margin: 0 !important;
+    };
+
+    .blog > a > h3{
+        font-size: 1.25em;
+        margin-right: 50%;
+    }
+    .blog > a > h5{
+        font-weight: 400;
+    }
+
 }

@@ -2,8 +2,7 @@ import React, { useState } from 'react'
 import { collection, addDoc } from 'firebase/firestore'
 import { auth, db } from '../config/firebase';
 import NotSignedUp from './NotSignedUp';
-import ReadBlogs from './ReadBlogs';
-import Navbar from './Navbar';
+// import Navbar from './Navbar';
 import NewNavbar from './NewNavbar';
 import './componentsCss/PublishBlogs.css'
 import { useNavigate } from 'react-router-dom';

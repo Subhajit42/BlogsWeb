@@ -1,0 +1,131 @@
+.mainBody{
+    width: -webkit-fill-available;
+    /* height: 100vh; */
+}
+
+.blog-head{
+    margin: 2%;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 0;
+}
+#blog-title{
+    padding-left: 3%;
+}
+
+.blog-info{
+    display: flex;
+    align-items: flex-end;
+    gap: 15px;
+}
+#blog-author{
+    font-weight: 400;
+    color: #FAC404;
+    white-space: nowrap;
+}
+#blog-timestamp{
+    white-space: nowrap;
+    font-weight: 300;
+    font-style: italic;
+}
+
+.line-author{
+    display: none;
+}
+
+.mainBody > .line{
+    width: 90vw;
+    margin: 2%;
+    margin-top: 1%;
+    border: 2px solid #FAC404;
+}
+
+#blog-content{
+    padding: 2%;
+    margin: 2%;
+    text-align: justify;
+    text-justify: inter-word;
+    /* border: 1px solid white; */
+}
+
+
+/* @media screen and (max-width: 600px) { */
+@media screen and (max-width: 750px) {
+    .mainBody{
+        width: -webkit-fill-available;
+        position: absolute;
+        top: 8vh;
+    }
+
+    .blog-head{
+        display: flex;
+        flex-direction: column-reverse;
+    }
+    .blog-info{
+        flex-wrap: wrap;
+        gap: 0px;
+    }
+    #blog-author{
+        margin-left: auto;
+        font-weight: 400;
+    }
+
+    .extra-info{
+        align-self: end;
+    }
+
+    .line-author{
+        display: block;
+        height: 0%;
+        width: 95vw;
+        margin-top: 1%;
+        border: 1px solid #FAC404;
+    }
+
+    .mainBody > .line{
+        display: none;
+        /* height: 0%;
+        width: 95vw; */
+    }
+    #blog-content{
+        font-size: smaller;
+    }
+
+    /* .blog-head{
+        margin: 2%;
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 0;
+    }
+    #blog-title{
+        padding-left: 3%;
+    }
+    .blog-info{
+        display: flex;
+        align-items: flex-end;
+        gap: 15px;
+    }
+    #blog-author{
+        color: #FAC404;
+        white-space: nowrap;
+    }
+    #blog-timestamp{
+        white-space: nowrap;
+        font-weight: 300;
+        font-style: italic;
+    }
+    .mainBody > .line{
+        width: 90vw;
+        margin: 2%;
+        margin-top: 1%;
+        border: 2px solid #FAC404;
+    }
+    #blog-content{
+        padding: 2%;
+        margin: 2%;
+        text-align: justify;
+        text-justify: inter-word;
+        /* border: 1px solid white; */
+    /* } */
+    
+}

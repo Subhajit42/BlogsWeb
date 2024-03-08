@@ -91,9 +91,16 @@ h6{
 }
 
 @media screen and (max-width: 600px){
+    .navbar{
+        position: absolute;
+        display: flex;
+        width: -webkit-fill-available;
+    }
+
 
     .section-title{
-        /* background-size: contain; */
+        background-position-x: center;
+        height: 100vh;
         position: unset;
         padding-bottom: 10%;
     }
@@ -106,7 +113,19 @@ h6{
     }
 
     .features{
-        display: none;
+        position: relative;
+        top: 10%;
+        width: auto;
+        justify-content: center;
+        margin: 5%;
+        padding: 2%;
+    }
+    .features > * >  h6{
+        text-wrap: nowrap;
+    }
+    .content{
+        text-wrap:stable;
+        padding: 5%;
     }
 
 

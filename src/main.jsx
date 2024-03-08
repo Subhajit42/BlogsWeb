@@ -11,9 +11,10 @@ import { createBrowserRouter, RouterProvider} from 'react-router-dom'
 import ErrorNotFound from './components/ErrorNotFound.jsx'
 import UserSpace from './components/UserSpace.jsx';
 import SearchBlogs from './components/SearchBlogs.jsx';
-// import ReadBlogsUser from './components/ReadBlogsUser.jsx';
+import ReadBlogsUser from './components/ReadBlogsUser.jsx';
 // import Blogs from './components/CreateBlogs.jsx';
 import UserBlogs from './components/UserBlogs.jsx';
+import Blog from './components/Blog.jsx';
 
 
 const router = createBrowserRouter([
@@ -36,10 +37,14 @@ const router = createBrowserRouter([
     // element: <Blogs />
   }
   ,{
-    path: '/test',
-    // element: <ReadBlogs condition={false}/>
-    element: <SearchBlogs />
-    // element: <ReadBlogsUser />
+  //   path: '/test',
+  //   // element: <ReadBlogs condition={true}/>
+  //   // element: <SearchBlogs />
+  //   element: <ReadBlogsUser />
+  // },
+  // {
+    path: '/blog',
+    element: <Blog />
   }
 ])
 

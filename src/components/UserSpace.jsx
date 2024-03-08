@@ -1,7 +1,7 @@
 import React from 'react'
-import Navbar from './Navbar'
+// import Navbar from './Navbar'
 import NewNavbar from './NewNavbar'
-import ReadBlogsUser from './ReadBlogsUser'
+// import ReadBlogsUser from './ReadBlogsUser'
 import { useNavigate } from 'react-router-dom'
 import { auth } from '../config/firebase'
 import NotSignedUp from './NotSignedUp'
@@ -11,6 +11,7 @@ import TitleBlogsWeb from './assets/BlogsWeb.svg'
 import './componentsCss/UserSpace.css'
 import CalendarWB from './CalenderWB'
 import SearchBlogs from './SearchBlogs'
+import ReadBlogs from './RecentBlogs'
 
 export default function UserSpace() {
 
@@ -20,12 +21,11 @@ export default function UserSpace() {
         navigator('/update-blog');
     }
 
-    const CurrentDate = new Date();CurrentDate
+    const CurrentDate = new Date();
 
     if (auth?.currentUser?.email == null){
         return (
             <>
-                {/* <Navbar/> */}
                 <NewNavbar/>
                     {/* <h3>Please SignUp or LogIn to continue.</h3>
                     <div>
@@ -40,7 +40,6 @@ export default function UserSpace() {
 
     return (
         <div className='UserSpaceBody'>
-            {/* <Navbar /> */}
             <NewNavbar/>
             
             <div className="UserSpaceLayout">
@@ -53,7 +52,7 @@ export default function UserSpace() {
                     <div className="userElement e-2">
                         <div className="greetings">
                             <h3>Welcome, User</h3>
-                            <h2>“To blog is to share, connect, create, and inspire. ”</h2>
+                            <h2>“To blog is to share, connect, create, and inspire.”</h2>
                         </div>
 
                         <div className="line"></div>
@@ -86,6 +85,11 @@ export default function UserSpace() {
 
                     <div className="calender e-5 py-2">
                         <CalendarWB />
+                    </div>
+
+                    <div className="recent-logs e-6">
+                        {/* <h3>Recent Blogs</h3> */}
+                        <ReadBlogs condition={true} />
                     </div>
                 </div>
 

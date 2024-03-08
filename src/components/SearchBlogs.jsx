@@ -5,6 +5,7 @@ import { auth, db } from '../config/firebase';
 // import NewNavbar from './NewNavbar';
 // import Blog from './Blog';
 import './componentsCss/SearchBlogs.css';
+import { Link } from 'react-router-dom';
 
 export default function SearchBlogs() {
     
@@ -58,10 +59,10 @@ export default function SearchBlogs() {
 
     return (
         <>
-        <div className="mainBody">
+        <div className="mainBody" style={{display:"contents"}}>
             {/* <NewNavbar /> */}
             <div className="container search-head p-0">
-                <h2 id='section-heading'>Search Blogs</h2>
+                <h2 id='section-heading' style={{alignSelf: "auto"}}>Search Blogs</h2>
                 <form className='searchBar' onSubmit={(e)=>{e.preventDefault();getBlogList}}>
                     <input placeholder='Search by Title' onChange={(e) => setSearch(e.target.value)} />
                     <button onClick={getBlogList}>Search</button>
@@ -76,15 +77,27 @@ export default function SearchBlogs() {
                     <div className="blogs-list">
                     {blogList.map((blog,index) => {
                             return (
-                                <div className='blog' key={index}>
-                                    <h3>{blog.Title}</h3>
-                                    <h5><small><i>{blog.UserId}</i></small></h5>
-                                    <h5>{blog.Dated}</h5>
-                                    {/* <h5>{blog.Dated}, {blog.Time}</h5> */}
+                                // <div className='blog' key={index} >
+                                //     <h3>{blog.Title}</h3>
+                                //     <h5><small><i>{blog.UserId}</i></small></h5>
+                                //     <h5>{blog.Dated}</h5>
+                                //     {/* <h5>{blog.Dated}, {blog.Time}</h5> */}
                                     
-                                    {/* <p>{blog.Content}</p> */}
+                                //     {/* <p>{blog.Content}</p> */}
+                                // </div>
+
+                                <div className='blog' key={index} >
+                                    <Link to="/blog" state={blog} >
+                                        {/* <Link to={{
+                                            pathname:`/blog`,
+                                            state: {title: "SecondBlog"}
+                                        }}> */}
+                                        <h3>{blog.Title}</h3>
+                                        <h5><small><i>{blog.UserId}</i></small></h5>
+                                        <h5>{blog.Dated}</h5>
+                                        </Link>
                                 </div>
-                            )
+                                )
                         })}
                     </div> : 
                     <div id="no-response">

@@ -4,7 +4,7 @@ import { query, where, orderBy, limit, doc, onSnapshot} from "firebase/firestore
 import { auth, db } from '../config/firebase';
 import { useNavigate } from 'react-router-dom';
 import NotSignedUp from './NotSignedUp';
-import './componentsCss/ReadBlogs.css';
+import './componentsCss/RecentBlogs.css';
 
 
 

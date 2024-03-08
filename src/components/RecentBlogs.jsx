@@ -2,7 +2,8 @@ import React, { useState, useEffect } from 'react'
 import { collection, getDocs } from 'firebase/firestore';
 import { query, where, orderBy, limit, doc, onSnapshot} from "firebase/firestore"; 
 import { auth, db } from '../config/firebase';
-import './componentsCss/ReadBlogs.css';
+import './componentsCss/RecentBlogs.css';
+import { Link } from 'react-router-dom';
 
 export default function ReadBlogs(props) {
 
@@ -48,43 +49,34 @@ export default function ReadBlogs(props) {
 
     return (
         <>
-            <div className="section" style={{height:"fit-content",marginBottom:"10px"}}>
-                <h1>{props.title}</h1>
-                <div className="line">
-                    <hr />
+            <div className="section" >
+            {/* style={{height:"fit-content",marginBottom:"10px"}} */}
+
+                <div className='recent-blogs'>
+                    <h3 >{props.title}</h3>
+                </div>
+
+                <div className="recent-blogs-body">
+                    {BlogsList.map((blog,index)=>{
+                        return (
+                            <div key={index} className='BlogCard'>
+                                <Link to="/blog" state={blog} >
+                                    <h3>{blog.Title}</h3>
+                                    <h5>{blog.Dated}</h5>
+                                    {/* <h5>{blog.Dated} | {blog.Time}</h5> */}
+                                </Link>
+                            </div>
+                        )
+                    })}
                 </div>
             </div>
-            {BlogsList.map((blog,index)=>{
-                return (
-                    <div key={index} className='BlogCard'>
-                        <h3>{blog.Title}</h3>
-                        <i> {blog.UserId} </i>
-                        <div>
-                            {blog.Dated}, {blog.Time}
-                        </div>
-                        {/* <p>{blog.Content}</p> */}
-                        
-                    </div>
-                )
-            })}
-            {/* {BlogsList.map((blog,index)=>{
-                return (
-                    <div key={index} className='BlogCard'>
-                        <h3>{blog.Title}</h3>
-                        <small> <i> {blog.UserId} </i> </small>
-                        <p>{blog.Dated}, {blog.Time}</p>
-                        <p>{blog.Content}</p>
-                        
-                    </div>
-                )
-            })} */}
         </>
     )
 }
 
 ReadBlogs.defaultProps = {
     lim : 3,
-    title : "Latest Blogs",
+    title : "Recent Blogs",
     condition: false,
     liveUpdates: false
 }

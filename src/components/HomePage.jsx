@@ -2,12 +2,12 @@ import React, { useEffect, useState } from 'react';
 import { auth, db } from '../config/firebase';
 import { collection, getDocs, query, orderBy, limit } from 'firebase/firestore';
 import NewNavbar from './NewNavbar';
-import BgImage from './assets/BgImage.png'
 
 import titleText from './assets/Title.svg'
-import BlogCategories from './BlogCategories';
 import './componentsCss/HomePage.css';
+// import BlogCategories from './BlogCategories';
 
+// import BgImage from './assets/BgImage.png'
 // import Navbar from './Navbar';
 // import ReadBlogs from './ReadBlogs';
 // import MainHead from './assets/Main.svg';
@@ -45,13 +45,6 @@ export default function HomePage() {
                         <h6>Share Your Experience</h6>
                         <div className='content' >Write your side of story and experiences and let people know what’s best.</div>
                     </div>
-                    {/* <div className="line">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="5" height="144" viewBox="0 0 5 144" fill="none">
-                            <g>
-                                <line x1="2.5" y1="1.09278e-07" x2="2.49999" y2="144" stroke="white" strokeWidth="5"/>
-                            </g>
-                        </svg> 
-                    </div> */}
                     <div className="f2 feature">
                         <h6>Find Your Audience</h6>
                         <div className='content' >Find people who share the same thoughts and experiences as you.</div>
