@@ -1,20 +1,16 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
-// import App from './App.jsx'
-// import './index.css'
 import HomePage from "./components/HomePage";
 import LogIn from "./components/LogIn.jsx";
 import SignIn from "./components/SignIn.jsx";
-// import ReadBlogs from "./components/ReadBlogs.jsx";
 
 import { createBrowserRouter, RouterProvider} from 'react-router-dom'
 import ErrorNotFound from './components/ErrorNotFound.jsx'
 import UserSpace from './components/UserSpace.jsx';
-import SearchBlogs from './components/SearchBlogs.jsx';
 import ReadBlogsUser from './components/ReadBlogsUser.jsx';
-// import Blogs from './components/CreateBlogs.jsx';
 import UserBlogs from './components/UserBlogs.jsx';
 import Blog from './components/Blog.jsx';
+import TestComponent from './components/TestComponent.jsx';
 
 
 const router = createBrowserRouter([
@@ -45,7 +41,8 @@ const router = createBrowserRouter([
     element: <Blog />
   },{
     path:'/test',
-    element: <ReadBlogsUser />
+    element: <TestComponent />
+    // element: <ReadBlogsUser />
   }
 ])
 

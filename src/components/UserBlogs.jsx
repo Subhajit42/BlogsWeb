@@ -50,11 +50,13 @@ export default function UserBlogs(props) {
                     {
                         Title: blogTitle,
                         Content: blogContent,
-                        UserId: getUser(),
+                        Author: getUser(),
                         Dated: getDate(),
-                        Time: getTime()
+                        Time: getTime(),
+                        UserId: auth.currentUser.uid
                     });
                 console.log("Blog Published");
+                navigator('/user');
             } catch (err) {
                 console.log("Error Publishing Blog");
                 console.error(err);
@@ -69,10 +71,10 @@ export default function UserBlogs(props) {
         }
     }
 
-    document.addEventListener("submit",(e)=>{
-        e.preventDefault();
-        publishBlog();
-    });
+    // document.addEventListener("submit",(e)=>{
+    //     e.preventDefault();
+    //     publishBlog();
+    // });
 
 
     if (auth?.currentUser?.email == null){

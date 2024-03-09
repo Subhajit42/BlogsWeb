@@ -33,18 +33,18 @@ export default function SearchBlogs(props) {
     }
 
     const getBlogList = async () => {
-        let a = [];
-        a.push(search.toLowerCase());
-        a.push(search.toUpperCase());
-        a.push(toTitleCase(search));
-        a.push(toCamelCase(search));
-        a.push(toCapitalise(search));
+        let searchCases = [];
+        searchCases.push(search.toLowerCase());
+        searchCases.push(search.toUpperCase());
+        searchCases.push(toTitleCase(search));
+        searchCases.push(toCamelCase(search));
+        searchCases.push(toCapitalise(search));
         // console.log(a)
         // const q = query(RefBlogsDB, where("Title", "in", a));
         if (props.globalSearch) {
             var q = query(RefBlogsDB, where("Title", "==", search));
         }else{
-            var q = query(RefBlogsDB, where("Title", "in", a), where("UserId", "==", auth.currentUser.email));
+            var q = query(RefBlogsDB, where("Title", "in", searchCases), where("UserId", "==", auth.currentUser.uid));
         }
 
         // const q = query(RefBlogsDB, where("Title", "in", a), or (where("UserId", "==", auth.currentUser.email)));
@@ -95,7 +95,7 @@ export default function SearchBlogs(props) {
                                                 state: {title: "SecondBlog"}
                                             }}> */}
                                             <h3>{blog.Title}</h3>
-                                            <h5><small><i>{blog.UserId}</i></small></h5>
+                                            <h5><small><i>{blog.Author}</i></small></h5>
                                             <h5>{blog.Dated}</h5>
                                             </Link>
                                     </div>
