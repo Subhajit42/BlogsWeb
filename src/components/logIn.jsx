@@ -14,15 +14,22 @@ export default function logIn() {
 
     const navigate = useNavigate()
 
+    const passwordElement = document.getElementById('password');
+    const errorDisplay = document.createElement('div');
+    errorDisplay.id = 'errorDisplay';
+    errorDisplay.innerHTML = 'Invalid username or password';
+
+
     const LogIn = async () =>{
         try {
             const logged = await signInWithEmailAndPassword(auth,username, password)
-            .then(console.log("Login Successful"));
+            // .then((l)=>console.log(l))
             if (logged){
-                navigate('/user')
+                navigate('/user');
             }
         } catch (err) {
             console.error(err);
+            passwordElement?.after(errorDisplay);
         }
     }
     
@@ -34,6 +41,7 @@ export default function logIn() {
             }
         } catch (err) {
             console.error(err);
+            passwordElement?.after(errorDisplay);
         }
     }
 

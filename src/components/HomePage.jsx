@@ -2,10 +2,10 @@ import React, { useEffect, useState } from 'react';
 import { auth, db } from '../config/firebase';
 import { collection, getDocs, query, orderBy, limit } from 'firebase/firestore';
 import NewNavbar from './NewNavbar';
-
+import SearchBlogs from './SearchBlogs';
 import titleText from './assets/Title.svg'
 import './componentsCss/HomePage.css';
-// import BlogCategories from './BlogCategories';
+import BlogCategories from './BlogCategories';
 
 // import BgImage from './assets/BgImage.png'
 // import Navbar from './Navbar';
@@ -34,9 +34,9 @@ export default function HomePage() {
     return (
         <>
             {/* <Navbar /> */}
-            <NewNavbar />
 
-            <div className="section-title">
+            <div className="section-title" style={{overflowX:"hidden"}}>
+            <NewNavbar/>
                 {/* <img src={BgImage} className="main head" alt="MainHead" /> */}
                 <img src={titleText} className="main head" alt="MainHead" />
                 
@@ -52,6 +52,10 @@ export default function HomePage() {
                 </div>
             </div>
 
+
+            <div className="section-search">
+                <SearchBlogs globalSearch={true}/>
+            </div>
 
             {/* <BlogCategories /> */}
             {/* <div className="latestBlogs rounded p-4">

@@ -31,20 +31,21 @@ const router = createBrowserRouter([
   },{
     path: '/user',
     element: <UserSpace />
-  },{
-    path: "/update-blog",
+  },
+  {
+    path: "/write-blog",
     element: <UserBlogs />
-    // element: <Blogs />
   }
   ,{
-  //   path: '/test',
-  //   // element: <ReadBlogs condition={true}/>
-  //   // element: <SearchBlogs />
-  //   element: <ReadBlogsUser />
-  // },
-  // {
+    path: "/update-blog",
+    element: <UserBlogs />
+  }
+  ,{
     path: '/blog',
     element: <Blog />
+  },{
+    path:'/test',
+    element: <ReadBlogsUser />
   }
 ])
 

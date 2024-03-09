@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 // import Navbar from './Navbar'
 import NewNavbar from './NewNavbar'
 // import ReadBlogsUser from './ReadBlogsUser'
@@ -11,17 +11,26 @@ import TitleBlogsWeb from './assets/BlogsWeb.svg'
 import './componentsCss/UserSpace.css'
 import CalendarWB from './CalenderWB'
 import SearchBlogs from './SearchBlogs'
-import ReadBlogs from './RecentBlogs'
+import RecentBlogs from './RecentBlogs'
 
 export default function UserSpace() {
 
     const navigator = useNavigate();
 
+    const [CurrentDate,setCurrent] = useState(new Date());
+
+    useEffect(()=>{
+        const interval = setInterval(()=>{
+            // console.log("Updated Date")
+            setCurrent(new Date());
+        },10000);
+        // return ()=>clearInterval(interval);
+    },[]);
+
     const writeBlog = ()=>{
-        navigator('/update-blog');
+        navigator('/write-blog');
     }
 
-    const CurrentDate = new Date();
 
     if (auth?.currentUser?.email == null){
         return (
@@ -63,7 +72,7 @@ export default function UserSpace() {
                     </div>
 
                     <div className="UserBlogs e-3">
-                        <SearchBlogs />
+                        <SearchBlogs globalSearch={false}/>
                     </div>
 
                 </div>
@@ -89,7 +98,7 @@ export default function UserSpace() {
 
                     <div className="recent-logs e-6">
                         {/* <h3>Recent Blogs</h3> */}
-                        <ReadBlogs condition={true} />
+                        <RecentBlogs condition={true} collapse={true}/>
                     </div>
                 </div>
 

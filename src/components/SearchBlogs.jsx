@@ -7,7 +7,7 @@ import { auth, db } from '../config/firebase';
 import './componentsCss/SearchBlogs.css';
 import { Link } from 'react-router-dom';
 
-export default function SearchBlogs() {
+export default function SearchBlogs(props) {
     
     const RefBlogsDB = collection(db, "Blogs");
 
@@ -39,17 +39,23 @@ export default function SearchBlogs() {
         a.push(toTitleCase(search));
         a.push(toCamelCase(search));
         a.push(toCapitalise(search));
-        console.log(a)
-        // const q = query(RefBlogsDB, where("Title", "==", search));
+        // console.log(a)
         // const q = query(RefBlogsDB, where("Title", "in", a));
-        const q = query(RefBlogsDB, where("Title", "in", a), where("UserId", "==", auth.currentUser.email));
+        if (props.globalSearch) {
+            var q = query(RefBlogsDB, where("Title", "==", search));
+        }else{
+            var q = query(RefBlogsDB, where("Title", "in", a), where("UserId", "==", auth.currentUser.email));
+        }
+
+        // const q = query(RefBlogsDB, where("Title", "in", a), or (where("UserId", "==", auth.currentUser.email)));
+
         const data = await getDocs(q).then((data)=>{
             if(data.empty){
                 setSearchRes(false);
                 return;
             }else{
                 setSearchRes(true);
-                const arr = data.docs.map((doc) => ({ ...doc.data() }));
+                const arr = data.docs.map((doc) => ({ ...doc.data(), id: doc.id }));
                 setBlogList(arr);
             }
         })
@@ -65,47 +71,48 @@ export default function SearchBlogs() {
                 <h2 id='section-heading' style={{alignSelf: "auto"}}>Search Blogs</h2>
                 <form className='searchBar' onSubmit={(e)=>{e.preventDefault();getBlogList}}>
                     <input placeholder='Search by Title' onChange={(e) => setSearch(e.target.value)} />
-                    <button onClick={getBlogList}>Search</button>
+                    <button className="btn btn-warning" onClick={getBlogList}>Search</button>
                 </form>
             </div>
-            <div className="section-sub-heading">
-                <h3><i> Search Results </i></h3>
-            </div>
-            
-                
-                {searchRes ? 
-                    <div className="blogs-list">
-                    {blogList.map((blog,index) => {
-                            return (
-                                // <div className='blog' key={index} >
-                                //     <h3>{blog.Title}</h3>
-                                //     <h5><small><i>{blog.UserId}</i></small></h5>
-                                //     <h5>{blog.Dated}</h5>
-                                //     {/* <h5>{blog.Dated}, {blog.Time}</h5> */}
-                                    
-                                //     {/* <p>{blog.Content}</p> */}
-                                // </div>
 
-                                <div className='blog' key={index} >
-                                    <Link to="/blog" state={blog} >
-                                        {/* <Link to={{
-                                            pathname:`/blog`,
-                                            state: {title: "SecondBlog"}
-                                        }}> */}
-                                        <h3>{blog.Title}</h3>
-                                        <h5><small><i>{blog.UserId}</i></small></h5>
-                                        <h5>{blog.Dated}</h5>
-                                        </Link>
-                                </div>
-                                )
-                        })}
-                    </div> : 
-                    <div id="no-response">
-                        <h4>No matching blogs found....</h4>
-                    </div>
-                }            
+            <div className="search-body">
+
+            
+                <div className="section-sub-heading">
+                    <h3><i> Search Results </i></h3>
+                </div>
+                
+                    
+                    {searchRes ? 
+                        <div className="blogs-list">
+                        {blogList.map((blog,index) => {
+                            console.log(blog)
+                                return (
+                                    <div className='blog' key={index} >
+                                        <Link to="/blog" state={blog} >
+                                            {/* <Link to={{
+                                                pathname:`/blog`,
+                                                state: {title: "SecondBlog"}
+                                            }}> */}
+                                            <h3>{blog.Title}</h3>
+                                            <h5><small><i>{blog.UserId}</i></small></h5>
+                                            <h5>{blog.Dated}</h5>
+                                            </Link>
+                                    </div>
+                                    )
+                            })}
+                        </div> : 
+                        <div id="no-response">
+                            <h4>No matching blogs found....</h4>
+                        </div>
+                    }
+                </div>
         </div>
 
         </>
     )
+}
+
+SearchBlogs.defaultProps = {
+    globalSearch : true
 }

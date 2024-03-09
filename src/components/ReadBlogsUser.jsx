@@ -64,6 +64,7 @@ export default function ReadBlogs(props) {
             <div className='recentBlogsBody'>
                 <h3 id="section-heading" >{props.title}</h3>
                 {BlogsList.map((blog,index)=>{
+                    console.log(blog)
                     return (
                         // <div className="blogBg">
                             <div key={index} className='BlogCardUser my-4 mx-3 p-4'>

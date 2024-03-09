@@ -116,6 +116,13 @@ input{
     color: bisque;
 }
 
+#errorDisplay{
+    color: red;
+    font-size: small;
+    margin-bottom: 10px;
+
+}
+
 /* MOTION / ANIMATION */
 
 @keyframes fadeInLeft {

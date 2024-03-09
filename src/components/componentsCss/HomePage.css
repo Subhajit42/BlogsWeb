@@ -46,10 +46,8 @@
     background-image: url("../assets/BgImage.png");
     /* background-size: contain; */
     background-size: cover;
-    background-repeat: no-repeat;
     top: 0%;
-    position: absolute;
-    /* overflow-x: hidden; */
+    position: relative;
     height: fit-content;
     padding-bottom: 2%;
 }
@@ -89,6 +87,15 @@ h6{
     transform: scaleY(0.5);
     height: min-content;
 }
+
+/* .section-search{
+    background-image: url("../assets/BgImage.png");
+    background-size: cover;
+    background-position-y: bottom;
+} */
+
+
+
 
 @media screen and (max-width: 600px){
     .navbar{

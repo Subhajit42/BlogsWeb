@@ -45,25 +45,35 @@ export default function ReadBlogs(props) {
     }
    
 
-
+    const toggleViewRB = ()=>{
+        const RB_body = document.getElementById('recent-blogs-body');
+        if (RB_body.classList.contains('show')){
+            document.getElementById('symbol').innerHTML = '&#x25BC;';
+            RB_body.classList.remove('show');
+        }else{
+            document.getElementById('symbol').innerHTML = '&#x25B2;';
+            RB_body.classList.add('show');
+        }
+    }
 
     return (
         <>
             <div className="section" >
-            {/* style={{height:"fit-content",marginBottom:"10px"}} */}
 
                 <div className='recent-blogs'>
-                    <h3 >{props.title}</h3>
+                    <button className='collapse-btn' onClick={toggleViewRB}>
+                        <h3 >{props.title}</h3>
+                        <h6 id='symbol' style={{scale:"0.8"}}>&#x25BC;</h6>
+                    </button>
                 </div>
 
-                <div className="recent-blogs-body">
+                <div className="recent-blogs-body collapse" id='recent-blogs-body'>
                     {BlogsList.map((blog,index)=>{
                         return (
                             <div key={index} className='BlogCard'>
                                 <Link to="/blog" state={blog} >
                                     <h3>{blog.Title}</h3>
                                     <h5>{blog.Dated}</h5>
-                                    {/* <h5>{blog.Dated} | {blog.Time}</h5> */}
                                 </Link>
                             </div>
                         )

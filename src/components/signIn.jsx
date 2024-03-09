@@ -14,6 +14,12 @@ export default function signIn() {
 
     const navigate = useNavigate();
 
+    const passwordElement = document.getElementById('password');
+    const errorDisplay = document.createElement('div');
+    errorDisplay.id = 'errorDisplay';
+    errorDisplay.innerHTML = 'Invalid username or password';
+
+
     const SignIn = async () =>{
         try {
             let logged = await createUserWithEmailAndPassword(auth, username, password).then(console.log("SignUp Successful"));

@@ -2,14 +2,19 @@ import React, { useState } from 'react'
 import { collection, addDoc } from 'firebase/firestore'
 import { auth, db } from '../config/firebase';
 import NotSignedUp from './NotSignedUp';
-// import Navbar from './Navbar';
 import NewNavbar from './NewNavbar';
-import './componentsCss/PublishBlogs.css'
-import { useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
+// import './componentsCss/PublishBlogs.css'
+import './componentsCss/Blog.css'
 
 export default function UserBlogs(props) {
     
     const navigator = useNavigate();
+    const location = useLocation();
+    const blog = location.state;
+    // console.log(blog);
+
+
 
     const RefBlogSite = collection(db,"Blogs")
 
@@ -78,15 +83,40 @@ export default function UserBlogs(props) {
         )
     }else{
         return (
-            <div className='MainBody'>
+        <>
+            <NewNavbar />
+            {/* <div className='MainBody'> */}
+            <div className='mainBody'>
                 {/* <Navbar /> */}
-                <NewNavbar />
                 <div className="NewBlogs mx-3 my-2">
-                    <h3 id='section-heading'>Publish your Blog</h3>
+
+                    {
+                        window.location.href.includes('update-blog') ?
+                            <></> :
+                            <h2 id='section-heading'>Publish your Blog</h2>
+                        
+                    }
+
+
+
                     <form id='publishBlog'>
-                        <input id='title' placeholder='Title' onChange={(e)=>setBlogTitle(e.target.value)} />  <br/>
-                        <textarea id='content' placeholder='Content' onChange={(e)=>setBlogContent(e.target.value)} /> <br/>
+                        {window.location.href.includes('update-blog') ?
+                            <input id='blog-title' placeholder='Title' value={blog.blogData.Title} onChange={(e)=>setBlogTitle(e.target.value)} />
+                                :
+                            <input id='blog-title' placeholder='Title' onChange={(e)=>setBlogTitle(e.target.value)} />
+                        }
+
+                        <div className="line"></div>
+
+                        {window.location.href.includes('update-blog') ?
+                            <textarea id='content' placeholder='Content' value={blog.blogData.Content} onChange={(e)=>setBlogContent(e.target.value)} />
+                                :
+                            <textarea id='content' placeholder='Content' onChange={(e)=>setBlogContent(e.target.value)} />
+
+                        }
+
                         {/* <button id="submitBlog-btn" onClick={publishBlog} > Publish </button> */}
+
                         <div className="utility-btns-publish">
                             <button type="button" className="btn btn-outline-warning" onClick={publishBlog} style={{margin: "10px"}}> Publish </button>
                             <button type="button" className="btn btn-outline-warning" onClick={cancelPublish} style={{margin: "10px"}}> Cancel </button>
@@ -94,6 +124,7 @@ export default function UserBlogs(props) {
                     </form>
                 </div>
             </div>
+        </>
         )
     }
 }
