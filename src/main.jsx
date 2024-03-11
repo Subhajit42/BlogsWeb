@@ -9,7 +9,6 @@ import ErrorNotFound from './components/ErrorNotFound.jsx'
 import UserSpace from './components/UserSpace.jsx';
 import UserBlogs from './components/UserBlogs.jsx';
 import Blog from './components/Blog.jsx';
-import RecentBlogs from './components/RecentBlogs.jsx';
 
 
 const router = createBrowserRouter([

@@ -65,7 +65,6 @@ export default function logIn() {
 
     return (
     <>
-        {/* <Navbar/> */}
         <NewNavbar />
 
         <div className="body ml">

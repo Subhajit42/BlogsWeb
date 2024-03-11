@@ -10,7 +10,7 @@ export default function Blog(props) {
 
     // const qwerty = props.location;
     const location = useLocation();
-    const { Title, UserId, Dated, Time, Content, id } = location.state;
+    const { Title, Author, UserId, Dated, Time, Content, id } = location.state;
     const blog = location.state;
     console.log(blog);
     
@@ -42,7 +42,7 @@ export default function Blog(props) {
                     <div className="blog-info">
                         <h2 id='blog-title'>{Title}</h2>
                         <div className="line-author"></div>
-                        <h5 id='blog-author'><small>By -{UserId}</small></h5>
+                        <h5 id='blog-author'><small>By -{Author}</small></h5>
                     </div>
 
                     

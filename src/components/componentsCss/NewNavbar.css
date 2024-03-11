@@ -71,8 +71,19 @@
 } */
 
 @media screen and (max-width: 600px){
+    .navbar {
+        position: absolute;
+        display: flex;
+        width: -webkit-fill-available;
+    }
+    .navbar-items {
+        display: flex;
+        gap: 20px;
+        flex-wrap: wrap !important;
+    }
     .navbar-collapse {
         display: flex;
         flex-direction: column !important;
+        width: 100vw;
     }
 }
