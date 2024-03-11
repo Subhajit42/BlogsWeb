@@ -2,10 +2,9 @@ import React, { useState } from 'react'
 import { GoogleAuth, auth } from '../config/firebase';
 import { signInWithEmailAndPassword, signInWithPopup } from 'firebase/auth';
 import { Link, useNavigate } from 'react-router-dom';
-import Navbar from "./Navbar"
-import './componentsCss/SignIn.css';
 import NewNavbar from './NewNavbar';
 import googleIcon from './assets/googleIcon.png';
+import './componentsCss/SignIn.css';
 
 export default function logIn() {
 
@@ -22,7 +21,7 @@ export default function logIn() {
 
     const LogIn = async () =>{
         try {
-            const logged = await signInWithEmailAndPassword(auth,username, password)
+            const logged = await signInWithEmailAndPassword(auth, username, password)
             if (logged){
                 navigate('/user');
             }

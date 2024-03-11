@@ -4,7 +4,6 @@ import { auth, db } from '../config/firebase';
 import NotSignedUp from './NotSignedUp';
 import NewNavbar from './NewNavbar';
 import { useLocation, useNavigate } from 'react-router-dom';
-// import './componentsCss/PublishBlogs.css'
 import './componentsCss/Blog.css'
 
 export default function UserBlogs(props) {
@@ -39,7 +38,8 @@ export default function UserBlogs(props) {
     }
 
     const publishBlog = async () =>{
-        // const choice = confirm("Are you sure you want to publish this blog?");
+        const choice = confirm("Are you sure you want to publish this blog?");
+        if (!choice){ return; }
         if (blogTitle.trim() == "" || blogContent.trim() == "" ){
             console.log("Empty Blog");
             return;
@@ -71,12 +71,6 @@ export default function UserBlogs(props) {
         }
     }
 
-    // document.addEventListener("submit",(e)=>{
-    //     e.preventDefault();
-    //     publishBlog();
-    // });
-
-
     if (auth?.currentUser?.email == null){
         return (
             <>
@@ -87,7 +81,6 @@ export default function UserBlogs(props) {
         return (
         <>
             <NewNavbar />
-            {/* <div className='MainBody'> */}
             <div className='mainBody'>
                 <div className="NewBlogs mx-3 my-2">
 
@@ -115,8 +108,6 @@ export default function UserBlogs(props) {
                             <textarea id='content' placeholder='Content' onChange={(e)=>setBlogContent(e.target.value)} />
 
                         }
-
-                        {/* <button id="submitBlog-btn" onClick={publishBlog} > Publish </button> */}
 
                         <div className="utility-btns-publish">
                             <button type="button" className="btn btn-outline-warning" onClick={publishBlog} style={{margin: "10px"}}> Publish </button>

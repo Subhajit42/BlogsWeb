@@ -1,22 +1,14 @@
 import React, { useEffect, useState } from 'react';
-import { auth, db } from '../config/firebase';
+import { db } from '../config/firebase';
 import { collection, getDocs, query, orderBy, limit } from 'firebase/firestore';
 import NewNavbar from './NewNavbar';
 import SearchBlogs from './SearchBlogs';
 import titleText from './assets/Title.svg'
-import './componentsCss/HomePage.css';
-import BlogCategories from './BlogCategories';
 import AboutUs from './AboutUs';
 import InfoSection from './InfoSection';
+import './componentsCss/HomePage.css';
+// import BlogCategories from './BlogCategories';
 
-// import BgImage from './assets/BgImage.png'
-// import Navbar from './Navbar';
-// import ReadBlogs from './ReadBlogs';
-// import MainHead from './assets/Main.svg';
-// import MainHead from "./componentsCss/MainHead.svg";
-// import { ReactComponent as MainHead } from "./componentsCss/MainHead.svg?react";
-// import MainHead from "./componentsCss/MainHead.svg?react";
-// import { ReactComponent as ReactLogo } from './assets/react.svg'
 
 const RefBlogsDB = collection(db, "Blogs");
 

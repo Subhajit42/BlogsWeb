@@ -2,10 +2,9 @@ import React, { useState } from 'react';
 import { GoogleAuth, auth } from '../config/firebase';
 import { createUserWithEmailAndPassword, signInWithPopup} from 'firebase/auth';
 import { Link, useNavigate } from 'react-router-dom';
-import Navbar from './Navbar';
-import './componentsCss/SignIn.css';
 import NewNavbar from './NewNavbar';
 import googleIcon from './assets/googleIcon.png';
+import './componentsCss/SignIn.css';
 
 export default function signIn() {
 
@@ -28,6 +27,7 @@ export default function signIn() {
             }
         } catch (err) {
             console.error(err);
+            passwordElement.after(errorDisplay);
         }
     }
 
@@ -39,19 +39,17 @@ export default function signIn() {
             }
         } catch (err) {
             console.error(err);
+            passwordElement.after(errorDisplay);
         }
     }
 
 
     return (
         <>
-        {/* <Navbar /> */}
         <NewNavbar />
         <div className="body ms">
-            {/* <div className='container contentbox'> */}
             <div className='contentbox'>
                 <div className="signIn-image">
-                    {/* <img src={signInImage} alt="signIn" style={{position:"relative"}}/> */}
                 </div>
 
                 <div className="menu" style={{animation: "fadeInRight 1s ease-in-out"}}>

@@ -2,8 +2,8 @@ import React from 'react'
 import { useNavigate } from 'react-router-dom'
 import { signOut } from 'firebase/auth'
 import { auth } from '../config/firebase'
-import './componentsCss/NewNavbar.css'
 import Logo from './assets/Logo.png'
+import './componentsCss/NewNavbar.css'
 
 export default function NewNavbar() {
 
@@ -21,7 +21,6 @@ export default function NewNavbar() {
   }
   const SignOut = async () =>{
           try {
-              // console.log(auth?.currentUser?.email)
               await signOut(auth).then(console.log("SignOut Successful")).then(navigate('/'));
               
           } catch (err) {
@@ -53,13 +52,14 @@ export default function NewNavbar() {
     <>
         <div className="navbar navbar-expand-lg">
             <div className="logo" style={{display:"contents"}}>
-            <a href="/">
-                <img src={Logo} alt="Logo" style={{height:"45px",marginLeft:"13px"}}/>
-                <button onClick={navBtn} className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                    <span className="navbar-toggler-icon"></span>
-                </button>
-            </a>
+                <a href="/">
+                    <img src={Logo} alt="Logo" style={{height:"45px",marginLeft:"13px"}}/>
+                </a>
             </div>
+            <button onClick={navBtn} className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span className="navbar-toggler-icon"></span>
+            </button>
+            
 
 
         <div className="collapse navbar-collapse" id="navbarSupportedContent">

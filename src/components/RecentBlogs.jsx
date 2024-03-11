@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
-import { collection, getDocs } from 'firebase/firestore';
-import { query, where, orderBy, limit, doc, onSnapshot} from "firebase/firestore"; 
+import { collection } from 'firebase/firestore';
+import { query, where, orderBy, limit, onSnapshot} from "firebase/firestore"; 
 import { auth, db } from '../config/firebase';
 import './componentsCss/RecentBlogs.css';
 import { Link } from 'react-router-dom';

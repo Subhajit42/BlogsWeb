@@ -37,15 +37,13 @@ export default function SearchBlogs(props) {
         searchCases.push(toTitleCase(search));
         searchCases.push(toCamelCase(search));
         searchCases.push(toCapitalise(search));
-        // console.log(a)
-        // const q = query(RefBlogsDB, where("Title", "in", a));
+
+        
         if (props.globalSearch) {
             var q = query(RefBlogsDB, where("Title", "==", search));
         }else{
             var q = query(RefBlogsDB, where("Title", "in", searchCases), where("UserId", "==", auth.currentUser.uid));
         }
-
-        // const q = query(RefBlogsDB, where("Title", "in", a), or (where("UserId", "==", auth.currentUser.email)));
 
         const data = await getDocs(q).then((data)=>{
             if(data.empty){
@@ -64,8 +62,6 @@ export default function SearchBlogs(props) {
     return (
         <>
         <div className="mainBody" style={{display:"contents"}}>
-            {/* <img src={BgImage2} alt='search-background'/> */}
-            {/* <NewNavbar /> */}
             <div className="container search-head p-0" id="search-section">
                 <h2 id='section-heading' style={{alignSelf: "auto"}}>{props.title}</h2>
                 <form className='searchBar' onSubmit={(e)=>{e.preventDefault();getBlogList}}>
