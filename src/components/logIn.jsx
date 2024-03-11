@@ -23,7 +23,6 @@ export default function logIn() {
     const LogIn = async () =>{
         try {
             const logged = await signInWithEmailAndPassword(auth,username, password)
-            // .then((l)=>console.log(l))
             if (logged){
                 navigate('/user');
             }
@@ -90,7 +89,6 @@ export default function logIn() {
                         <Link id='redirect-link' to="/sign-in">Don't have an account? Sign in</Link>
                     </div>
                 <div className="logIn-image">
-                        {/* <img src={signInImage} alt="signIn" style={{position:"relative"}}/> */}
                 </div>
             </div>
         </div>

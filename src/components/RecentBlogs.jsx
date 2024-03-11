@@ -22,12 +22,12 @@ export default function ReadBlogs(props) {
     }
     
     
-    const getBlogList = async (q) =>{        
-        const data = await getDocs(q);
-        const arr = data.docs.map((doc)=>({...doc.data()}))
-        // console.log("not using snapshot");
-        setBlogList(arr);
-    }
+    // const getBlogList = async (q) =>{        
+    //     const data = await getDocs(q);
+    //     const arr = data.docs.map((doc)=>({...doc.data()}))
+    //     // console.log("not using snapshot");
+    //     setBlogList(arr);
+    // }
 
     const getBlogListSnapshot = ()=> {
         // console.log("using snapshot")
@@ -36,23 +36,23 @@ export default function ReadBlogs(props) {
         setBlogList(arr);
         });
     }
-
-    if (props.liveUpdates){
-        useEffect(()=>{ getBlogListSnapshot() },[])
-    }else{
-        useEffect(()=>{ getBlogList(q) },[])
+    
+    // if (props.liveUpdates){
+        useEffect(()=>{ getBlogListSnapshot(q) },[])
+    // }else{
+        // useEffect(()=>{ getBlogList(q) },[])
         
-    }
-   
+    // }
+
 
     const toggleViewRB = ()=>{
         const RB_body = document.getElementById('recent-blogs-body');
         if (RB_body.classList.contains('show')){
-            document.getElementById('symbol').innerHTML = '&#x25BC;';
             RB_body.classList.remove('show');
+            document.getElementById('symbol').innerHTML = '&#x25BC;';
         }else{
-            document.getElementById('symbol').innerHTML = '&#x25B2;';
             RB_body.classList.add('show');
+            document.getElementById('symbol').innerHTML = '&#x25B2;';
         }
     }
 

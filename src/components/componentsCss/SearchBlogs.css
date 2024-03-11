@@ -6,6 +6,22 @@
     height: 100vh;
 } */
 
+/* .search-section{
+    background-image: url('../assets/BgImage2.png') !important;
+    background-size: cover;
+    background-repeat: no-repeat;
+} */
+
+.mainBody > img {
+    width: 100%;
+    height: fit-content;
+    object-fit: cover;
+    position: absolute;
+    z-index: -1;
+    /* filter: blur(5px); */
+}
+
+
 #section-heading{
     text-transform: uppercase;
     font-style: italic;
@@ -51,6 +67,7 @@
 }
 
 .section-sub-heading > h3{
+    font-weight: 300;
     padding-left: 3vw;
     /* margin: 5%; */
     margin-bottom: 2%;
@@ -62,11 +79,13 @@
     width: 35%;
     height: 2px;
     background: #ffffff;
-    margin-top: 10px;
+    margin-top: 4px;
     transform: translateX(-3vh);
 }
 
+
 .blog{
+    overflow: hidden;
     background: #04113D;
     /* background: #d9d9d92d; */
     backdrop-filter: blur(10px);
@@ -74,10 +93,49 @@
     padding: 2%;
     margin: 2%;
 }
+.rect{
+    /* display: none; */
+    position: absolute;
+    width: 100vw;
+    height: 100px;
+    background: #FAC406;
+    z-index: -1;
+    transform: rotate(45deg);
+}
+
+@keyframes moveRight {
+    0% {
+        transform: rotate(45deg) translateY(27vw);
+    }
+    100% {
+        transform: rotate(45deg) translateY(-8vw);
+    }
+}
+
+
+.blog:hover > .rect {
+    animation: moveRight 1s forwards;
+}
+
+
 .blog:hover{
-    border: 1px solid white;
-    /* border: 1px solid #FAC406; */
-    /* scale: 1.02; */
+    scale: 1.021;
+    transition: 0.3s;
+}
+
+.rcet:hover{
+    background-color: aqua;
+    transition: 1s;
+}
+
+.r-2{
+    width: -webkit-fill-available;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+.r-2 > #date{
+    margin-left: auto;
 }
 
 .search-head{
@@ -113,6 +171,10 @@
     font-weight: 400;
 }
 
+
+
+
+
 .search-body{
     margin: 0 5%;
 }
@@ -134,7 +196,7 @@
         width: 80vw;
     }
     .search-head > #section-heading::after{
-        width: 98% !important;
+        width: 100% !important;
     }
     .searchBar > input{
         margin: 0 !important;

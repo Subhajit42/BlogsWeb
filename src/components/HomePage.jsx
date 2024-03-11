@@ -6,6 +6,8 @@ import SearchBlogs from './SearchBlogs';
 import titleText from './assets/Title.svg'
 import './componentsCss/HomePage.css';
 import BlogCategories from './BlogCategories';
+import AboutUs from './AboutUs';
+import InfoSection from './InfoSection';
 
 // import BgImage from './assets/BgImage.png'
 // import Navbar from './Navbar';
@@ -52,11 +54,22 @@ export default function HomePage() {
                 </div>
             </div>
 
-
+            
+            <div className="section-latest">
+                <InfoSection />
+            </div>
+            
             <div className="section-search">
                 <SearchBlogs globalSearch={true}/>
             </div>
 
+
+
+
+
+            <div className="footer">
+                <AboutUs />
+            </div>
             {/* <BlogCategories /> */}
             {/* <div className="latestBlogs rounded p-4">
                 <ReadBlogs condition={false} />

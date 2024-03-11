@@ -53,19 +53,22 @@ export default function NewNavbar() {
     <>
         <div className="navbar navbar-expand-lg">
             <div className="logo" style={{display:"contents"}}>
+            <a href="/">
                 <img src={Logo} alt="Logo" style={{height:"45px",marginLeft:"13px"}}/>
                 <button onClick={navBtn} className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span className="navbar-toggler-icon"></span>
                 </button>
+            </a>
             </div>
 
 
         <div className="collapse navbar-collapse" id="navbarSupportedContent">
 
             <div className="navbar-items">
-                <a href="/">Home</a>
-                <a href="#">Featured</a>
+                <a href="#section-title">Home</a>
                 <a href="/user">Profile</a>
+                <a href="#search-section">Search</a>
+                <a href="#">Featured</a>
                 <a href="#">About Us</a>
 
             </div>

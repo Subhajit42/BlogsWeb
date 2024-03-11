@@ -2,8 +2,6 @@ import React from 'react'
 import { useState } from 'react';
 import { getDocs, collection ,query , where } from 'firebase/firestore';
 import { auth, db } from '../config/firebase';
-// import NewNavbar from './NewNavbar';
-// import Blog from './Blog';
 import './componentsCss/SearchBlogs.css';
 import { Link } from 'react-router-dom';
 
@@ -66,9 +64,10 @@ export default function SearchBlogs(props) {
     return (
         <>
         <div className="mainBody" style={{display:"contents"}}>
+            {/* <img src={BgImage2} alt='search-background'/> */}
             {/* <NewNavbar /> */}
-            <div className="container search-head p-0">
-                <h2 id='section-heading' style={{alignSelf: "auto"}}>Search Blogs</h2>
+            <div className="container search-head p-0" id="search-section">
+                <h2 id='section-heading' style={{alignSelf: "auto"}}>{props.title}</h2>
                 <form className='searchBar' onSubmit={(e)=>{e.preventDefault();getBlogList}}>
                     <input placeholder='Search by Title' onChange={(e) => setSearch(e.target.value)} />
                     <button className="btn btn-warning" onClick={getBlogList}>Search</button>
@@ -87,16 +86,17 @@ export default function SearchBlogs(props) {
                         <div className="blogs-list">
                         {blogList.map((blog,index) => {
                             console.log(blog)
-                                return (
-                                    <div className='blog' key={index} >
+                            return (
+                                <div className='blog' key={index} >
+                                        <div className="rect"></div>
                                         <Link to="/blog" state={blog} >
-                                            {/* <Link to={{
-                                                pathname:`/blog`,
-                                                state: {title: "SecondBlog"}
-                                            }}> */}
-                                            <h3>{blog.Title}</h3>
-                                            <h5><small><i>{blog.Author}</i></small></h5>
-                                            <h5>{blog.Dated}</h5>
+                                            <div className="r-1">
+                                                <h3>{blog.Title}</h3>
+                                            </div>
+                                            <div className="r-2">
+                                                <h5><small><i>{blog.Author}</i></small></h5>
+                                                <h5 id='date'>{blog.Dated}</h5>
+                                            </div>
                                             </Link>
                                     </div>
                                     )
@@ -114,5 +114,6 @@ export default function SearchBlogs(props) {
 }
 
 SearchBlogs.defaultProps = {
-    globalSearch : true
+    globalSearch : true,
+    title: "Search Blogs"
 }

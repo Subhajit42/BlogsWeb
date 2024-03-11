@@ -1,0 +1,27 @@
+.footer{
+    background-image: linear-gradient(#5E3D84,#381E7E,#1E115B,#060415);
+    /* background-image: linear-gradient(90deg, #FAC406,#FA7B06,#AD3BA7); */
+    /* background-image: url('../assets/BgImage2.png'); */
+    color: white;
+    /* padding: 20px; */
+    text-align: center;
+    padding-top: 20px;
+    /* border-top: 2px solid #FA7B06; */
+}
+
+#info{
+    width: fit-content;
+}
+
+#info::after{
+    content: "";
+    display: block;
+    margin: 4px;
+    width: 100%;
+    height: 1px;
+    border: 1px solid white;
+}
+
+#rules-conditions{
+    margin: 4%;
+}

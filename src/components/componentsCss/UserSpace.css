@@ -114,6 +114,7 @@
     margin-bottom: 13px;
     font-style: italic;
     text-transform: uppercase;
+    align-content: center;
 }
 .date > *{
     margin-bottom: 2px;
@@ -139,6 +140,13 @@
     width: -webkit-fill-available;
     justify-content: space-around;
 }
+
+.search-section{
+    background-image: linear-gradient(90deg, #FAC406,#FA7B06,#AD3BA7);
+}
+
+
+
 
 @media screen and (max-width:1080px) {
     .day-time{
@@ -181,6 +189,7 @@
 
 
     .e-2{
+        height: fit-content;
         display: inline;
         max-height: fit-content;
         height: 40%;

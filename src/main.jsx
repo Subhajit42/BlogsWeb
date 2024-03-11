@@ -7,10 +7,9 @@ import SignIn from "./components/SignIn.jsx";
 import { createBrowserRouter, RouterProvider} from 'react-router-dom'
 import ErrorNotFound from './components/ErrorNotFound.jsx'
 import UserSpace from './components/UserSpace.jsx';
-import ReadBlogsUser from './components/ReadBlogsUser.jsx';
 import UserBlogs from './components/UserBlogs.jsx';
 import Blog from './components/Blog.jsx';
-import TestComponent from './components/TestComponent.jsx';
+import RecentBlogs from './components/RecentBlogs.jsx';
 
 
 const router = createBrowserRouter([
@@ -39,10 +38,6 @@ const router = createBrowserRouter([
   ,{
     path: '/blog',
     element: <Blog />
-  },{
-    path:'/test',
-    element: <TestComponent />
-    // element: <ReadBlogsUser />
   }
 ])
 

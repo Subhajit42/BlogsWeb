@@ -89,7 +89,6 @@ export default function UserBlogs(props) {
             <NewNavbar />
             {/* <div className='MainBody'> */}
             <div className='mainBody'>
-                {/* <Navbar /> */}
                 <div className="NewBlogs mx-3 my-2">
 
                     {

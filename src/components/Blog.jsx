@@ -63,7 +63,7 @@ export default function Blog(props) {
                 {console.log(auth.currentUser)}
 
                 {
-                    (auth.currentUser) ? 
+                    (auth.currentUser.uid == blog.UserId) ? 
                         <div className="utility-btn">
                             <button className='btn btn-warning' onClick={()=>updateBlog(blog)}>
                                 Update Blog

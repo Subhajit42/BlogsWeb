@@ -1,17 +1,13 @@
 import React, { useEffect, useState } from 'react'
-// import Navbar from './Navbar'
 import NewNavbar from './NewNavbar'
-// import ReadBlogsUser from './ReadBlogsUser'
 import { useNavigate } from 'react-router-dom'
 import { auth } from '../config/firebase'
 import NotSignedUp from './NotSignedUp'
-
-// import TitleBlogsWeb from '../images/BlogsWeb.svg'
 import TitleBlogsWeb from './assets/BlogsWeb.svg'
-import './componentsCss/UserSpace.css'
 import CalendarWB from './CalenderWB'
 import SearchBlogs from './SearchBlogs'
 import RecentBlogs from './RecentBlogs'
+import './componentsCss/UserSpace.css'
 
 export default function UserSpace() {
 
@@ -21,10 +17,8 @@ export default function UserSpace() {
 
     useEffect(()=>{
         const interval = setInterval(()=>{
-            // console.log("Updated Date")
             setCurrent(new Date());
         },10000);
-        // return ()=>clearInterval(interval);
     },[]);
 
     const writeBlog = ()=>{
@@ -36,11 +30,6 @@ export default function UserSpace() {
         return (
             <>
                 <NewNavbar/>
-                    {/* <h3>Please SignUp or LogIn to continue.</h3>
-                    <div>
-                        <button className='btn btn-primary' onClick={()=>navigator('/sign-in')}>SignIn</button> <br/>
-                        <button className='btn btn-primary' onClick={()=>navigator('/log-in')}>LogIn</button>
-                    </div> */}
                     
                 <NotSignedUp/>
             </>
@@ -72,7 +61,7 @@ export default function UserSpace() {
                     </div>
 
                     <div className="UserBlogs e-3">
-                        <SearchBlogs globalSearch={false}/>
+                        <SearchBlogs title={"Search Your Blogs"} globalSearch={false}/>
                     </div>
 
                 </div>
@@ -97,21 +86,13 @@ export default function UserSpace() {
                     </div>
 
                     <div className="recent-logs e-6">
-                        {/* <h3>Recent Blogs</h3> */}
-                        <RecentBlogs condition={true} collapse={true}/>
+                        {/* <RecentBlogs liveUpdates={true} condition={true} collapse={true}/> */}
+                        <RecentBlogs />
                     </div>
                 </div>
 
 
             </div>
-
-            {/* <div className="headingElement">
-                <h3>Welcome, User</h3>
-                <div className="head-buttons">
-                    <button className='writeBlog-btn' onClick={writeBlog}>Write Blog</button>
-                </div>
-            </div>
-            <ReadBlogsUser /> */}
 
         </div>
     )

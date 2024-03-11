@@ -39,15 +39,6 @@ export default function Blogs() {
         <>
             <Navbar />
             <h1>Blogs</h1>
-            {/* <div className="container">
-                <h3><i>Previous View</i></h3>
-                <h3>{blog.Title}</h3>
-                <small> <i> {blog.UserId} </i> </small>
-                <p>{blog.Dated}, {blog.Time}</p>
-                <p>{blog.Content}</p>
-            </div> */}
-
-
             <div className="container border border-secondary p-4 m-4">
                 {console.log("first")}
                 <small>Blog Title</small>
