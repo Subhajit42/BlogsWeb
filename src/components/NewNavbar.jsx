@@ -65,11 +65,11 @@ export default function NewNavbar() {
         <div className="collapse navbar-collapse" id="navbarSupportedContent">
 
             <div className="navbar-items">
-                <a href="#section-title">Home</a>
+                <a href="/#section-title">Home</a>
                 <a href="/user">Profile</a>
-                <a href="#search-section">Search</a>
+                <a href="/#search-section">Search</a>
                 <a href="#">Featured</a>
-                <a href="#">About Us</a>
+                <a href="/#AboutUs">About Us</a>
 
             </div>
 

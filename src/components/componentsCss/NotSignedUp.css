@@ -5,6 +5,13 @@
     overflow: hidden;
 } */
 
+.headingElement-not-found{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+}
+
 .NotSignedBg{
     /* background-image: url('../assets/AbstractBg.png'); */
     background-image: url('../assets/BgImage.png');
@@ -24,14 +31,14 @@
     flex-wrap: wrap;
     align-content: center;
     justify-content: center;
-    align-items: center; 
+    align-items: center;
 }
 
 .utility-btns{
     display: flex;
+    gap: 10px;
 }
 
 .utility-btns > button{
     color: #FAC460 ;
-    margin: 5%;
 }

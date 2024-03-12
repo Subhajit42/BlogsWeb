@@ -59,7 +59,7 @@ export default function HomePage() {
 
 
 
-            <div className="footer">
+            <div className="footer" id='AboutUs'>
                 <AboutUs />
             </div>
             {/* <BlogCategories /> */}

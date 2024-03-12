@@ -9,8 +9,10 @@ export default function NotSignedUp() {
   return (
     <>
       <div className="NotSignedBg">
-        <div className="headingElement" id="NotSigned">
+        <div className="headingElement-not-found" id="NotSigned">
+          <center>
             <h3>Please SignUp or LogIn to continue.</h3>
+          </center>
             <div className='utility-btns'>
               <button className='btn btn-dark' onClick={()=>navigator('/sign-in')}>SignIn</button>
               <button className='btn btn-dark' onClick={()=>navigator('/log-in')}>LogIn</button>
