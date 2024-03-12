@@ -68,7 +68,7 @@ export default function NewNavbar() {
                 <a href="/#section-title">Home</a>
                 <a href="/user">Profile</a>
                 <a href="/#search-section">Search</a>
-                <a href="#">Featured</a>
+                {/* <a href="#">Featured</a> */}
                 <a href="/#AboutUs">About Us</a>
 
             </div>
