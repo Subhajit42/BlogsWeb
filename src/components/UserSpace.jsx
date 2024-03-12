@@ -86,7 +86,7 @@ export default function UserSpace() {
                     </div>
 
                     <div className="recent-logs e-6">
-                        <RecentBlogs />
+                        <RecentBlogs condition={true}/>
                     </div>
                 </div>
 
