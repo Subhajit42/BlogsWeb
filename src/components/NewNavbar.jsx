@@ -9,7 +9,7 @@ export default function NewNavbar() {
 
   let navigate = useNavigate();
 
-  const ToSignIn = () =>{
+  const ToSignUp = () =>{
       if (window.location.pathname == "/sign-in") return;
       let path = `/sign-in`; 
       navigate(path);
@@ -76,7 +76,7 @@ export default function NewNavbar() {
             <div className="utility-btns-navbar">
               { !(auth?.currentUser?.email) && 
                   <>
-                      <button type="button" className="btn btn-warning mx-2" onClick={ToSignIn}>SignIn</button>
+                      <button type="button" className="btn btn-warning mx-2" onClick={ToSignUp}>SignUp</button>
                       <button type="button" className="btn btn-warning mx-2" onClick={ToLogIn}>LogIn</button>
                   </>
               }

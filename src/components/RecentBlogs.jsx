@@ -14,8 +14,8 @@ export default function ReadBlogs(props) {
     
     var q;
     if (props.condition){
-        const Id = auth.currentUser.displayName ? auth.currentUser.displayName: auth.currentUser.email;
-        q = query(RefBlogsDB, where("UserId","==",Id) , orderBy("Dated","desc"), orderBy("Time","desc"), limit(props.lim));
+        // const Id = auth.currentUser.displayName ? auth.currentUser.displayName: auth.currentUser.email;
+        q = query(RefBlogsDB, where("UserId","==",auth.currentUser.uid) , orderBy("Dated","desc"), orderBy("Time","desc"), limit(props.lim));
     }
     else{
         q = query(RefBlogsDB,orderBy("Dated","desc"), orderBy("Time","desc"), limit(props.lim));
@@ -33,6 +33,7 @@ export default function ReadBlogs(props) {
         // console.log("using snapshot")
         onSnapshot(q,(querySnapshot)=>{
         const arr = querySnapshot.docs.map((doc)=>({...doc.data()}))
+        console.log(arr)
         setBlogList(arr);
         });
     }

@@ -10,15 +10,16 @@ export default function logIn() {
 
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
+    const [errorText, setErrorText] = useState("");
 
     const navigate = useNavigate()
 
-    const passwordElement = document.getElementById('password');
-    const errorDisplay = document.createElement('div');
-    errorDisplay.id = 'errorDisplay';
-    errorDisplay.innerHTML = 'Invalid username or password';
-
-
+    // const passwordElement = document.getElementById('password');
+    // const loginBtn = document.getElementById('logIn-btn');
+    // const errorDisplay = document.createElement('div');
+    // errorDisplay.id = 'errorDisplay';
+    
+    
     const LogIn = async () =>{
         try {
             const logged = await signInWithEmailAndPassword(auth, username, password)
@@ -27,7 +28,11 @@ export default function logIn() {
             }
         } catch (err) {
             console.error(err);
-            passwordElement?.after(errorDisplay);
+            if (username == ""){
+                setErrorText("Username cannot be empty");
+            }else{
+                setErrorText("Invalid username or password");
+            }
         }
     }
     
@@ -44,14 +49,14 @@ export default function logIn() {
     }
 
 
-    document.addEventListener("submit", (event)=>{
-        event.preventDefault();
-        try{
-            LogIn();
-        }catch(err){
-            console.error(err);
-        }
-    });
+    // document.addEventListener("submit", (event)=>{
+    //     event.preventDefault();
+    //     try{
+    //         LogIn();
+    //     }catch(err){
+    //         console.error(err);
+    //     }
+    // });
 
     // document.addEventListener("keypress", function(event) {
     //     if (event.key === "Enter") {
@@ -78,7 +83,8 @@ export default function logIn() {
                         {/* <form> */}
                             <input id="username" placeholder='Username' onChange={(e)=> setUsername(e.target.value)} />
                             <input id="password" type="password" placeholder='Password' onChange={(e)=> setPassword(e.target.value)} />
-                            <button type="button" className="form-btn" onClick={LogIn}> Log In </button>
+                            <div id="errorDisplay">{errorText}</div>
+                            <button type="button" className="form-btn" id='logIn-btn' onClick={LogIn}> Log In </button>
                             <center><div className='or'>or</div></center>
                             <button type="button" className="form-btn-google" onClick={SignWithGoogleID}>
                                 <img src={googleIcon} alt='' style={{width:"25px"}}/>

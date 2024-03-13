@@ -2,7 +2,7 @@ import React from 'react'
 import ReactDOM from 'react-dom/client'
 import HomePage from "./components/HomePage";
 import LogIn from "./components/LogIn.jsx";
-import SignIn from "./components/SignIn.jsx";
+import SignUp from "./components/SignUp.jsx";
 
 import { createBrowserRouter, RouterProvider} from 'react-router-dom'
 import ErrorNotFound from './components/ErrorNotFound.jsx'
@@ -17,7 +17,7 @@ const router = createBrowserRouter([
     errorElement: <ErrorNotFound />
   },{
     path: '/sign-in',
-    element: <SignIn />
+    element: <SignUp />
     
   },{
     path: '/log-in',
