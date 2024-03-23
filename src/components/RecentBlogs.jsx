@@ -33,7 +33,7 @@ export default function ReadBlogs(props) {
         // console.log("using snapshot")
         onSnapshot(q,(querySnapshot)=>{
         const arr = querySnapshot.docs.map((doc)=>({...doc.data()}))
-        console.log(arr)
+        // console.log(arr)
         setBlogList(arr);
         });
     }

@@ -1,6 +1,6 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { useState } from 'react';
-import { getDocs, collection ,query , where } from 'firebase/firestore';
+import { getDocs, collection ,query , where, orderBy } from 'firebase/firestore';
 import { auth, db } from '../config/firebase';
 import './componentsCss/SearchBlogs.css';
 import { Link } from 'react-router-dom';
@@ -11,6 +11,8 @@ export default function SearchBlogs(props) {
 
     const [search, setSearch] = useState('');
     const [blogList, setBlogList] = useState([]);
+    const [userBlogList, setUserBlogList] = useState([]);
+    const [otherAuthBlogList, setOtherAuthBlogList] = useState([]);
     const [searchRes,setSearchRes] = useState(true);
 
     const toTitleCase = (str)=> {
@@ -37,13 +39,8 @@ export default function SearchBlogs(props) {
         searchCases.push(toTitleCase(search));
         searchCases.push(toCamelCase(search));
         searchCases.push(toCapitalise(search));
-
         
-        if (props.globalSearch) {
-            var q = query(RefBlogsDB, where("Title", "==", search));
-        }else{
-            var q = query(RefBlogsDB, where("Title", "in", searchCases), where("UserId", "==", auth.currentUser.uid));
-        }
+        const q = query(RefBlogsDB, where("Title", "in", searchCases));
 
         const data = await getDocs(q).then((data)=>{
             if(data.empty){
@@ -52,11 +49,20 @@ export default function SearchBlogs(props) {
             }else{
                 setSearchRes(true);
                 const arr = data.docs.map((doc) => ({ ...doc.data(), id: doc.id }));
+                
+                seperateOtherAuthors(arr);
                 setBlogList(arr);
             }
         })
 
-        
+        function seperateOtherAuthors(data){
+            let MyBlogs = data.filter((blog) => blog.UserId === auth.currentUser.uid);
+            let OtherBlogs= data.filter((blog) => blog.UserId !== auth.currentUser.uid);
+
+            setUserBlogList(MyBlogs);
+            setOtherAuthBlogList(OtherBlogs);
+            
+        } 
     }
 
     return (
@@ -72,44 +78,97 @@ export default function SearchBlogs(props) {
 
             <div className="search-body">
 
-            
+            {blogList.length > 0 ?
                 <div className="section-sub-heading">
                     <h3><i> Search Results </i></h3>
-                </div>
-                
-                    
-                    {searchRes ? 
-                        <div className="blogs-list">
-                        {blogList.map((blog,index) => {
-                            console.log(blog)
-                            return (
-                                <div className='blog' key={index} >
-                                        <div className="rect"></div>
-                                        <Link to="/blog" state={blog} >
-                                            <div className="r-1">
-                                                <h3>{blog.Title}</h3>
-                                            </div>
-                                            <div className="r-2">
-                                                <h5><small><i>{blog.Author}</i></small></h5>
-                                                <h5 id='date'>{blog.Dated}</h5>
-                                            </div>
-                                            </Link>
-                                    </div>
-                                    )
-                            })}
-                        </div> : 
-                        <div id="no-response">
-                            <h4>No matching blogs found....</h4>
-                        </div>
-                    }
-                </div>
-        </div>
+                </div>:
+                null
+            }
+                 
+                        {searchRes ? 
+                            <div className="blogs-list">
+                                {props.loggedIn ?
+                                <div>
+                                    {userBlogList?.map((blog,index) => {
+                                        return (
+                                                <div className='blog' key={index} >
+                                                    <div className="rect"></div>
+                                                    <Link to="/blog" state={blog} >
+                                                        <div className="r-1">
+                                                            <h3>{blog.Title}</h3>
+                                                        </div>
+                                                        <div className="r-2">
+                                                            <h5><small><i>{blog.Author}</i></small></h5>
+                                                            <h5 id='date'>{blog.Dated}</h5>
+                                                        </div>
+                                                    </Link>
+                                                </div>
+                                                )
+                                    })}
 
+
+                                    {otherAuthBlogList.length > 0 ?
+                                        <div className="section-sub-heading">
+                                            <h3><i>From Other Authors</i></h3>
+                                        </div>:
+                                        null
+                                    }
+
+                                    
+
+
+
+
+                                    {otherAuthBlogList?.map((blog,index) => {
+                                        return (
+                                                <div className='blog' key={index} >
+                                                    <div className="rect"></div>
+                                                    <Link to="/blog" state={blog} >
+                                                        <div className="r-1">
+                                                            <h3>{blog.Title}</h3>
+                                                        </div>
+                                                        <div className="r-2">
+                                                            <h5><small><i>{blog.Author}</i></small></h5>
+                                                            <h5 id='date'>{blog.Dated}</h5>
+                                                        </div>
+                                                    </Link>
+                                                </div>
+                                                )
+                                    })}
+
+                                </div>:
+                                <div>
+                                    {blogList.map((blog,index) => {
+                                        return (
+                                                <div className='blog' key={index} >
+                                                    <div className="rect"></div>
+                                                    <Link to="/blog" state={blog} >
+                                                        <div className="r-1">
+                                                            <h3>{blog.Title}</h3>
+                                                        </div>
+                                                        <div className="r-2">
+                                                            <h5><small><i>{blog.Author}</i></small></h5>
+                                                            <h5 id='date'>{blog.Dated}</h5>
+                                                        </div>
+                                                    </Link>
+                                                </div>
+                                                )
+                                    })}
+                                </div>
+                                }
+                            </div> : 
+                            <div id="no-response">
+                                <h4>No matching blogs found....</h4>
+                            </div>
+                        }
+            </div>
+        </div>
         </>
     )
 }
 
 SearchBlogs.defaultProps = {
     globalSearch : true,
+    loggedIn: false,
     title: "Search Blogs"
 }

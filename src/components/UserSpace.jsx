@@ -61,7 +61,7 @@ export default function UserSpace() {
                     </div>
 
                     <div className="UserBlogs e-3">
-                        <SearchBlogs title={"Search Your Blogs"} globalSearch={false}/>
+                        <SearchBlogs title={"Search Your Blogs"} globalSearch={false} loggedIn={true}/>
                     </div>
 
                 </div>
