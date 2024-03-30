@@ -53,7 +53,20 @@
     /* border: 1px solid white; */
 }
 
+#blog-categories-dropdown{
+    padding: 1%;
+    border-radius: 5px;
+    font-size: 1.2em;
+    margin-top: 15px;
+    margin-left: 20px;
+    color: #FAC404;
+    background-color: transparent;
+}
 
+#blog-categories-dropdown > option{
+    color: whitesmoke;
+    background-color: #070C20;
+}
 
 input#blog-title{
     width: 90%;
@@ -128,6 +141,11 @@ textarea#content,#blog-content{
         /* height: 0%;
         width: 95vw; */
     }
+
+    #blog-categories-dropdown{
+        margin-left: 0;
+    }
+
     #blog-content{
         font-size: smaller;
     }

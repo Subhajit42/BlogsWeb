@@ -49,8 +49,9 @@ export default function SearchBlogs(props) {
             }else{
                 setSearchRes(true);
                 const arr = data.docs.map((doc) => ({ ...doc.data(), id: doc.id }));
-                
-                seperateOtherAuthors(arr);
+                if (props.loggedIn){
+                    seperateOtherAuthors(arr);
+                }
                 setBlogList(arr);
             }
         })
