@@ -1,6 +1,6 @@
-import React, { useEffect, useState } from 'react';
-import { db } from '../config/firebase';
-import { collection, getDocs, query, orderBy, limit } from 'firebase/firestore';
+// import { useEffect, useState } from 'react';
+// import { db } from '../config/firebase';
+// import { collection, getDocs, query, orderBy, limit } from 'firebase/firestore';
 import NewNavbar from './NewNavbar';
 import SearchBlogs from './SearchBlogs';
 import titleText from './assets/Title.svg'
@@ -10,20 +10,21 @@ import './componentsCss/HomePage.css';
 // import BlogCategories from './BlogCategories';
 
 
-const RefBlogsDB = collection(db, "Blogs");
+// const RefBlogsDB = collection(db, "Blogs");
 
 export default function HomePage() {
     
-    const [BlogsList, setBlogList] = useState([]);
+    // const [BlogsList, setBlogList] = useState([]);
 
-    const getBlogList = async () =>{
-        const q = query(RefBlogsDB, orderBy("Time","desc"), limit(3));
-        const data = await getDocs(q);
-        const arr = data.docs.map((doc)=>({...doc.data()}));
-        setBlogList(arr);
-    }
 
-    useEffect(()=>{ getBlogList() },[])
+    // const getBlogList = async () =>{
+    //     const q = query(RefBlogsDB, orderBy("Time","desc"), limit(3));
+    //     const data = await getDocs(q);
+    //     const arr = data.docs.map((doc)=>({...doc.data()}));
+    //     setBlogList(arr);
+    // }
+
+    // useEffect(()=>{ getBlogList() },[])
 
     return (
         <>
