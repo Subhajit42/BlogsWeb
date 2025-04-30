@@ -8,11 +8,10 @@ import './componentsCss/Blog.css';
 
 export default function Blog(props) {
 
-    // const qwerty = props.location;
     const location = useLocation();
     const { Title, Author, UserId, Dated, Time, Content, id } = location.state;
     const blog = location.state;
-    console.log(blog);
+    // console.log(blog);
     
     const deleteBlog = async (id)=>{
         const choice = confirm("Are you sure you want to delete this blog?");
@@ -58,12 +57,8 @@ export default function Blog(props) {
                             </p>
                         </center>
 
-
-                
-                {console.log(auth.currentUser)}
-
                 {
-                    (auth.currentUser.uid == blog.UserId) ? 
+                    ((auth.currentUser) && (auth.currentUser.uid == blog.UserId)) ? 
                         <div className="utility-btn">
                             <button className='btn btn-warning' onClick={()=>updateBlog(blog)}>
                                 Update Blog
@@ -76,7 +71,6 @@ export default function Blog(props) {
                         :
                         <></>
                 }
-
 
 
             </div>

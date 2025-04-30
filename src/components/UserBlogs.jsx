@@ -37,6 +37,10 @@ export default function UserBlogs(props) {
         return auth.currentUser.email;
     }
 
+    const getCategory = () =>{
+        return document.getElementById('blog-categories-dropdown').value;
+    }
+
     const publishBlog = async () =>{
         const choice = confirm("Are you sure you want to publish this blog?");
         if (!choice){ return; }
@@ -48,11 +52,12 @@ export default function UserBlogs(props) {
                 console.log(auth.currentUser.uid);
                 await addDoc(RefBlogSite,
                     {
-                        Title: blogTitle,
-                        Content: blogContent,
                         Author: getUser(),
                         Dated: getDate(),
                         Time: getTime(),
+                        Title: blogTitle,
+                        Category: getCategory(),
+                        Content: blogContent,
                         UserId: auth.currentUser.uid
                     });
                 console.log("Blog Published");
@@ -97,7 +102,20 @@ export default function UserBlogs(props) {
                         {window.location.href.includes('update-blog') ?
                             <input id='blog-title' placeholder='Title' value={blog.blogData.Title} onChange={(e)=>setBlogTitle(e.target.value)} />
                                 :
-                            <input id='blog-title' placeholder='Title' onChange={(e)=>setBlogTitle(e.target.value)} />
+                            <>
+                                <input id='blog-title' placeholder='Title' onChange={(e)=>setBlogTitle(e.target.value)} />
+                                <div class="input-group mb-3">
+                                    
+                                    <select className="dropdown" id="blog-categories-dropdown">
+                                        <option selected>--Choose Category--</option>
+                                        <option value="BooksBlog">Books Blog</option>
+                                        <option value="FoodsBlog">Foods Blog</option>
+                                        <option value="TravelBlog">Travel Blog</option>
+                                        <option value="PersonalBlog">Personal Blog</option>
+                                        <option value="SportsBlog">Sports Blog</option>
+                                    </select>
+                                </div>
+                            </>
                         }
 
                         <div className="line"></div>

@@ -40,7 +40,6 @@ export default function Blogs() {
             <Navbar />
             <h1>Blogs</h1>
             <div className="container border border-secondary p-4 m-4">
-                {console.log("first")}
                 <small>Blog Title</small>
                 <input type="text" className="form-control my-2" defaultValue={blog.Title} onChange={(e)=>setTitle(e.target.value)} />
                 <small>Blog Content</small>

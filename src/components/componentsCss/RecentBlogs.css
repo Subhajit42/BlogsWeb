@@ -50,7 +50,7 @@
     align-self: flex-end;
 }
 
-.BlogCard:hover > a > h3{
+/* .BlogCard:hover > a > h3{
     font-style: italic;
     transform: translateX(50%);
     transition: 0.5s;
@@ -58,7 +58,7 @@
 .BlogCard:not(:hover) > a > h3{
     transform: translateX(0%);
     transition: 0.5s;
-}
+} */
 .BlogCard:hover{
     border: 1px solid white;
 }
